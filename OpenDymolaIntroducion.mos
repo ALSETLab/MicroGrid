@@ -1,0 +1,3 @@
+// Script for opening the MicroGrid library and changing the working directory
+openModel("/home/marcelo/Desktop/Gitted_Reps/MicroGrids.mo");
+cd("/home/marcelo/Desktop/CPS_Directory");
