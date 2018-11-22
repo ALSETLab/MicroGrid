@@ -1,5 +1,5 @@
 within MicroGrid;
-package Electrical
+package Control
    extends Modelica.Icons.Package;
 
-end Electrical;
+end Control;
