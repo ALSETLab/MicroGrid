@@ -16,5 +16,6 @@ equation
             100,100}}), graphics={
             Rectangle(extent={{-70,30},{70,-30}},lineColor={0,0,255}),
             Line(points={{-96,0},{-70,0}}, color={0,0,255}),
-            Line(points={{70,0},{96,0}}, color={0,0,255})}));	
+            Line(points={{70,0},{96,0}}, color={0,0,255})})
+            );	
 end resistor;
