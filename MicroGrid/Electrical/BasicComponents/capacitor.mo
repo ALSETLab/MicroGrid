@@ -1,4 +1,4 @@
-within MicroGrid.Electrical.BasicComponents
+within MicroGrid.Electrical.BasicComponents;
 model capacitor "Ideal capacitor"
   extends MicroGrid.Electrical.Interfaces.OnePort(v(start=0));
   parameter Modelica.SIunits.Capacitance C=1 "Capacitance";

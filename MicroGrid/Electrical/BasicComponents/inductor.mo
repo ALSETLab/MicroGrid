@@ -1,4 +1,4 @@
-within MicroGrid.Electrical.BasicComponents
+within MicroGrid.Electrical.BasicComponents;
 model inductor "Ideal inductor"
 	extends MicroGrid.Electrical.Interfaces.OnePort(i(start=0));
 	parameter Modelica.SIunits.Inductance L=1 "Inductance";

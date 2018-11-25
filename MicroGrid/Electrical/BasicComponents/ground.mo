@@ -1,4 +1,4 @@
-within MicroGrid.Electrical.BasicComponents
+within MicroGrid.Electrical.BasicComponents;
 model ground "Ground node"
 	MicroGrid.Electrical.Interfaces.NegativePin p annotation (Placement(transformation(
         origin={0,100},
