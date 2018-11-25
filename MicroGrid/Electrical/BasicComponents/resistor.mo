@@ -1,7 +1,7 @@
 within MicroGrid.Electrical.BasicComponents;
 model resistor "Linear ideal resistor"
 	extends MicroGrid.Electrical.Interfaces.OnePort;
-	parameter Modelica.SIunits.Resistance R=1;
+	parameter Modelica.SIunits.Resistance R=1 "Resistance";
 equation
 	v = R*i; // Ohm law
 	annotation(
