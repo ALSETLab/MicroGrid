@@ -13,16 +13,6 @@ The reason could be that
   to define the zero potential of the electrical circuit, or
 - a connector of an electrical component is not connected.");
   annotation (defaultComponentName="pin_n",
-    Documentation(info="<html>
-<p>Connectors PositivePin and NegativePin are nearly identical. The only difference is that the icons are different in order to identify more easily the pins of a component. Usually, connector PositivePin is used for the positive and connector NegativePin for the negative pin of an electrical component.</p>
-</html>",
-        revisions="<html>
-<dl>
-<dt><i>1998</i></dt>
-<dd>by Christoph Clauss initially implemented
-</dd>
-</dl>
-</html>"),
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={Rectangle(
           extent={{-100,100},{100,-100}},
