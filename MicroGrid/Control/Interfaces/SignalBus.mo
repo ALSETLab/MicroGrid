@@ -1,5 +1,5 @@
-within MicroGrid.Sensors.Interfaces;
-connector SignalBus "Communication bus for sensors signals"
+within MicroGrid.Control.Interfaces;
+connector SignalBus "Communication bus for controller signals"
   Real sensorSignal;
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
@@ -8,11 +8,11 @@ connector SignalBus "Communication bus for sensors signals"
             color={255,204,51},
             thickness=0.5),
           Rectangle(
-            lineColor={255,0,0},
+            lineColor={0,128,0},
             lineThickness=0.5,
             extent={{-10.0,0.0},{8.0,8.0}}),
           Polygon(
-            fillColor={255,0,0},
+            fillColor={0,128,0},
             fillPattern=FillPattern.Solid,
             points={{-80.0,50.0},{80.0,50.0},{100.0,30.0},{80.0,-40.0},{60.0,-50.0},{-60.0,-50.0},{-80.0,-40.0},{-100.0,30.0}},
             smooth=Smooth.Bezier),
@@ -26,7 +26,7 @@ connector SignalBus "Communication bus for sensors signals"
             fillPattern=FillPattern.Solid,
             extent={{-5.0,-25.0},{5.0,-15.0}}),
           Rectangle(
-            lineColor={255,0,0},
+            lineColor={0,128,0},
             lineThickness=0.5,
             extent={{-20.0,0.0},{20.0,4.0}})}),
     Diagram(coordinateSystem(
@@ -35,7 +35,7 @@ connector SignalBus "Communication bus for sensors signals"
         Polygon(
           points={{-40,25},{40,25},{50,15},{40,-20},{30,-25},{-30,-25},{-40,-20},{-50,15}},
           lineColor={0,0,0},
-          fillColor={255,0,0},
+          fillColor={0,128,0},
           fillPattern=FillPattern.Solid,
           smooth=Smooth.Bezier),
         Ellipse(
