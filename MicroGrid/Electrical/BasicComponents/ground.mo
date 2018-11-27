@@ -1,6 +1,6 @@
 within MicroGrid.Electrical.BasicComponents;
 model ground "Ground node"
-	MicroGrid.Electrical.Interfaces.NegativePin p annotation (Placement(transformation(
+	MicroGrid.Electrical.Interfaces.PositivePin p annotation (Placement(transformation(
         origin={0,100},
         extent={{10,-10},{-10,10}},
         rotation=270)));
