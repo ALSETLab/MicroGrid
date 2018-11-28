@@ -5,8 +5,7 @@ model currentSensor "Sensor to measure the current flowing between two pins"
         transformation(extent={{-110,-10},{-90,10}})));
   MicroGrid.Electrical.Interfaces.NegativePin n "negative pin" annotation (Placement(
         transformation(extent={{90,-10},{110,10}})));
-  MicroGrid.Sensors.Interfaces.SignalBus currSignal(unit="A")
-    "Current in the branch from p to n as output signal"
+  MicroGrid.Sensors.Interfaces.SignalBus currSignal "Current in the branch from p to n as output signal"
      annotation (Placement(transformation(
         origin={0,-95},
         extent={{10,-10},{-10,10}},
