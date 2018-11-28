@@ -5,7 +5,7 @@ model Control2Real
         transformation(extent={{90,-10},{110,10}}), iconTransformation(extent={{
             90,-10},{110,10}})));
   MicroGrid.Control.Interfaces.SignalBus InputSignal
-    annotation (Placement(transformation(extent={{-108,-12},{-78,14}})));
+    annotation (Placement(transformation(extent={{-110,-16},{-72,14}})));
 equation
   InputSignal.sensorSignal = OutputReal;
 
