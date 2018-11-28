@@ -1,6 +1,6 @@
 within MicroGrid.Electrical.Converters;
 model SwitchedBoost "DC/DC Boost Converter"
-
+  extends Modelica.Electrical.PowerConverters.Icons.Converter;
   Interfaces.PositivePin Input_p
     annotation (Placement(transformation(extent={{-106,30},{-86,50}})));
   Interfaces.NegativePin Input_n
@@ -17,6 +17,8 @@ model SwitchedBoost "DC/DC Boost Converter"
         extent={{-10,-10},{10,10}},
         rotation=-90,
         origin={0,-2})));
+  Control.Interfaces.SignalBus DutyRatio
+    annotation (Placement(transformation(extent={{-10,-106},{10,-86}})));
 equation
   connect(InputInductor.p, Input_p)
     annotation (Line(points={{-65.6,40},{-96,40}}, color={0,0,255}));
