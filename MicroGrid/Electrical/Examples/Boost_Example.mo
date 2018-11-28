@@ -21,11 +21,11 @@ model Boost_Example
   MicroGrid.Electrical.Converters.SwitchedBoost switchedBoost(
     L_boost=0.0001,
     f_s=50000,
-    Vdrop=1E-5,
     r_diode=1E-5,
     g_diode=1E-5,
     r_switch=1E-5,
-    g_switch=1E-5)
+    g_switch=1E-5,
+    Vdrop=0.475)
     annotation (Placement(transformation(extent={{-28,0},{-8,20}})));
   Modelica.Blocks.Sources.Constant DutyRatioValue(k=0.75)
     annotation (Placement(transformation(extent={{54,-46},{34,-26}})));
