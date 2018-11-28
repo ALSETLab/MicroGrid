@@ -18,7 +18,7 @@ equation
         Polygon(points={{-80,0},{-80,0}}, lineColor={0,140,72}),
         Polygon(
           points={{90,0},{72,2},{-86,18},{-86,-20},{90,0}},
-          lineColor={0,140,72},
-          fillColor={0,140,72},
+          lineColor={28,108,200},
+          fillColor={238,46,47},
           fillPattern=FillPattern.CrossDiag)}));
 end Real2Sensor;

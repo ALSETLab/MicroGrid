@@ -12,12 +12,12 @@ equation
   annotation (Icon(graphics={
         Rectangle(
           extent={{-92,28},{92,-28}},
-          lineColor={0,140,72},
+          lineColor={238,46,47},
           lineThickness=0.5),
         Polygon(points={{-80,0},{-80,0}}, lineColor={28,108,200}),
         Polygon(
           points={{90,0},{72,2},{-86,18},{-86,-20},{90,0}},
-          lineColor={0,140,72},
+          lineColor={238,46,47},
           fillColor={28,108,200},
           fillPattern=FillPattern.CrossDiag)}));
 end Sensor2Real;
