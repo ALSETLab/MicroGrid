@@ -65,5 +65,4 @@ equation
     annotation (Line(points={{40,18},{40,20},{74,20}}, color={0,0,255}));
   connect(voltageSensor.n, LoadResistor.n)
     annotation (Line(points={{74,0},{40,0},{40,2}}, color={0,0,255}));
-  annotation ();
 end Boost_Example;
