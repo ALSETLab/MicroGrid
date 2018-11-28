@@ -1,13 +1,13 @@
 within MicroGrid.Control.Interfaces;
 model Real2Control
 
-  MicroGrid.Control.Interfaces.SignalBus InputReal annotation (Placement(
-        transformation(extent={{90,-10},{110,10}}), iconTransformation(extent={{
-            90,-10},{110,10}})));
-  Modelica.Blocks.Interfaces.RealOutput OutputSignal
-    annotation (Placement(transformation(extent={{-104,-10},{-84,10}})));
+  MicroGrid.Control.Interfaces.SignalBus OutputSignal annotation (Placement(
+        transformation(extent={{82,-14},{106,12}}), iconTransformation(extent={{86,-10},
+            {106,10}})));
+  Modelica.Blocks.Interfaces.RealInput InputReal
+    annotation (Placement(transformation(extent={{-100,-10},{-80,10}})));
 equation
-  InputSignal = OutputReal;
+  OutputSignal.sensorSignal = InputReal;
 
   annotation (Icon(graphics={
         Rectangle(

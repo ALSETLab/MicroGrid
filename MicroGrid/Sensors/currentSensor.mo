@@ -5,17 +5,18 @@ model currentSensor "Sensor to measure the current flowing between two pins"
         transformation(extent={{-110,-10},{-90,10}})));
   MicroGrid.Electrical.Interfaces.NegativePin n "negative pin" annotation (Placement(
         transformation(extent={{90,-10},{110,10}})));
-  MicroGrid.Sensors.Interfaces.SignalBus i(unit="A")
+  MicroGrid.Sensors.Interfaces.SignalBus currSignal(unit="A")
     "Current in the branch from p to n as output signal"
      annotation (Placement(transformation(
         origin={0,-95},
         extent={{10,-10},{-10,10}},
-        rotation=0)));
+        rotation=0), iconTransformation(extent={{17,-15.5},{-17,15.5}}, origin={
+            1,-93.5})));
 equation
   p.v = n.v;
-  p.i = i;
-  n.i = -i;
-  annotation(
+  p.i = currSignal.sensorSignal;
+  n.i = -currSignal.sensorSignal;
+  annotation (
   Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={

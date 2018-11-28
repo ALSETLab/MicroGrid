@@ -4,10 +4,10 @@ model Control2Real
   Modelica.Blocks.Interfaces.RealOutput OutputReal annotation (Placement(
         transformation(extent={{90,-10},{110,10}}), iconTransformation(extent={{
             90,-10},{110,10}})));
-  SignalBus InputSignal
-    annotation (Placement(transformation(extent={{-104,-10},{-84,10}})));
+  MicroGrid.Control.Interfaces.SignalBus InputSignal
+    annotation (Placement(transformation(extent={{-108,-12},{-78,14}})));
 equation
-  InputSignal = OutputReal;
+  InputSignal.sensorSignal = OutputReal;
 
   annotation (Icon(graphics={
         Rectangle(

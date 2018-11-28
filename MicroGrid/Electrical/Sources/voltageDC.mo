@@ -17,11 +17,11 @@ equation
           textString="%name=%V",
           lineColor={0,0,255}),
         Text(
-          extent={{-120,50},{-20,0}},
+          extent={{-96,50},{4,0}},
           lineColor={0,0,255},
           textString="+"),
         Text(
-          extent={{20,50},{120,0}},
+          extent={{-10,48},{90,-2}},
           lineColor={0,0,255},
           textString="-")}),
     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{

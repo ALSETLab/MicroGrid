@@ -26,6 +26,6 @@ equation
             color={0,0,255}),Line(
             points={{20,40},{20,-40}},
             thickness=0.5,
-            color={0,0,255}),Line(points={{-96,0},{-20,0}}, color={0,0,255}),
-          Line(points={{20,0},{96,0}}, color={0,0,255})}));
+            color={0,0,255}),Line(points={{-80,0},{-20,0}}, color={0,0,255}),
+          Line(points={{20,0},{80,0}}, color={0,0,255})}));
 end capacitor;

@@ -4,9 +4,9 @@ partial model OnePort
   Modelica.SIunits.Voltage v "Voltage drop between the two pins (= p.v - n.v)";
   Modelica.SIunits.Current i "Current flowing from pin p to pin n";
   MicroGrid.Electrical.Interfaces.PositivePin p "Potential p.v greater than potential n.v"
-    annotation (Placement(transformation(extent={{-106,-10},{-86,10}})));
+    annotation (Placement(transformation(extent={{-90,-10},{-70,10}})));
   MicroGrid.Electrical.Interfaces.NegativePin n
-    annotation (Placement(transformation(extent={{86,-10},{106,10}})));
+    annotation (Placement(transformation(extent={{70,-10},{90,10}})));
 equation
   // Current enter by the positive pin:
   i = p.i;

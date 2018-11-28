@@ -1,13 +1,13 @@
 within MicroGrid.Electrical.BasicComponents;
 model ground "Ground node"
-	MicroGrid.Electrical.Interfaces.PositivePin p annotation (Placement(transformation(
+ MicroGrid.Electrical.Interfaces.PositivePin p annotation (Placement(transformation(
         origin={0,100},
         extent={{10,-10},{-10,10}},
         rotation=270)));
 equation
-	p.v = 0;
-	annotation ( 
-	Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+ p.v = 0;
+ annotation (
+ Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={
         Line(points={{-60,50},{60,50}}, color={0,0,255}),
         Line(points={{-40,30},{40,30}}, color={0,0,255}),

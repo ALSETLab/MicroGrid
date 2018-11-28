@@ -4,7 +4,7 @@ model singlePhaseAC "Single Phase AC Voltage Source"
   parameter Modelica.SIunits.Angle phase=0 "Phase of voltage waveform";
   parameter Modelica.SIunits.Frequency freq(start=1) "Frequency of voltage waveform";
   extends MicroGrid.Electrical.Interfaces.OnePort;
-
+  import Modelica.Constants.pi;
 equation
   v = V*Modelica.Math.sin(2*pi*freq*time + phase);
    annotation (
