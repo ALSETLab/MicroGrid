@@ -6,7 +6,7 @@ model clarke "Clarke transformation block."
   SignalBus v_alfa annotation(Placement(visible = true, transformation(origin = {95, 40}, extent = {{-15, -15}, {15, 15}}, rotation = 0), iconTransformation(origin = {93.303, 34.008}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   SignalBus v_beta annotation(Placement(visible = true, transformation(origin = {95, -40}, extent = {{-15, -15}, {15, 15}}, rotation = 0), iconTransformation(origin = {93.774, -33.225}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   MicroGrid.Sensors.Interfaces.SignalBus v_A annotation(Placement(visible = true, transformation(origin = {-95, 70}, extent = {{-15, -15}, {15, 15}}, rotation = 0), iconTransformation(origin = {-92.51, 64.722}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  MicroGrid.Sensors.Interfaces.SignalBus v_B annotation(Placement(visible = true, transformation(origin = {-95, 0}, extent = {{-15, -15}, {15, 15}}, rotation = 0), iconTransformation(origin = {-92.51, -3.051}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  MicroGrid.Sensors.Interfaces.SignalBus v_B annotation(Placement(visible = true, transformation(origin = {-95, 0}, extent = {{-15, -15}, {15, 15}}, rotation = 0), iconTransformation(origin = {-92.986, -0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   MicroGrid.Sensors.Interfaces.SignalBus v_C annotation(Placement(visible = true, transformation(origin = {-95, -70}, extent = {{-15, -15}, {15, 15}}, rotation = 0), iconTransformation(origin = {-92.51, -70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   v_alfa.sensorSignal = 2 / 3 * (v_A.sensorSignal - 1 / 2 * v_B.sensorSignal - 1 / 2 * v_C.sensorSignal);
