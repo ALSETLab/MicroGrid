@@ -1,5 +1,4 @@
 within MicroGrid.Control.PhaseLockedLoop;
-model DSOGI
 
-	
+model DSOGI
 end DSOGI;
