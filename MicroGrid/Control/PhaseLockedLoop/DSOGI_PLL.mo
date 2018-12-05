@@ -3,7 +3,8 @@ within MicroGrid.Control.PhaseLockedLoop;
 model DSOGI_PLL
   extends Modelica.Electrical.PowerConverters.Icons.Control;
   import Modelica.Constants.pi;
-  parameter Real SysFreq = 60 "System expected frequency, in hertz";
+  parameter Real SysFreq = 60 "System nominal frequency, in hertz";
+  parameter Real VLine = 220 "System nominal RMS line voltage";
   parameter Real sogiGain = 1.41 "SOGI pass band filter gain";
   Sensors.Interfaces.SignalBus vA annotation(Placement(visible = true, transformation(origin = {-95, 65}, extent = {{-15, -15}, {15, 15}}, rotation = 0), iconTransformation(origin = {-93.848, 63.808}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Sensors.Interfaces.SignalBus vB annotation(Placement(visible = true, transformation(origin = {-95, 0}, extent = {{-15, -15}, {15, 15}}, rotation = 0), iconTransformation(origin = {-93.298, -3.332}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -28,6 +29,8 @@ model DSOGI_PLL
   Modelica.Blocks.Continuous.Integrator integrator1 annotation(Placement(visible = true, transformation(origin = {235, -35.859}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Interfaces.SignalBus vD annotation(Placement(visible = true, transformation(origin = {275, 35}, extent = {{-15, -15}, {15, 15}}, rotation = 0), iconTransformation(origin = {92.38, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Interfaces.SignalBus vQ annotation(Placement(visible = true, transformation(origin = {275, -35}, extent = {{-15, -15}, {15, 15}}, rotation = 0), iconTransformation(origin = {91.904, -35.236}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  // inte = vq*delta; omega = kp_pll*vq + ki_pll*inte;
+  // Vpico = 220*sqrt(2)/sqrt(3); kp_pll = 2*377*0.707/Vpico; ki_pll = kp_pll*Vpico/(377^2)
 equation
   connect(vA, ClarkeTransform.v_A) annotation(Line(visible = true, origin = {-90.149, 28.491}, points = {{-4.851, 36.509}, {-4.851, -18.255}, {9.702, -18.255}}, color = {255, 0, 0}));
   connect(vB, ClarkeTransform.v_B) annotation(Line(visible = true, origin = {-90.174, -0}, points = {{-4.826, 0}, {-4.826, -0}, {9.651, -0}}, color = {255, 0, 0}));
