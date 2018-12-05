@@ -7,7 +7,7 @@ model DSOGI_PLL
   parameter Real VLine = 220 "System nominal RMS line voltage";
   parameter Real sogiGain = 1.41 "SOGI pass band filter gain";
   parameter Real Freq_PI = 100 "Cut-off frequency for CL synchronous reference frame PI block";
-  parameter Real Xi_PI = 0.7 "Desired damping coefficient for CL synchronous reference frame";
+  parameter Real Xi_PI = 0.707 "Desired damping coefficient for CL synchronous reference frame";
   Sensors.Interfaces.SignalBus vA annotation(Placement(visible = true, transformation(origin = {-95, 65}, extent = {{-15, -15}, {15, 15}}, rotation = 0), iconTransformation(origin = {-93.848, 63.808}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Sensors.Interfaces.SignalBus vB annotation(Placement(visible = true, transformation(origin = {-95, 0}, extent = {{-15, -15}, {15, 15}}, rotation = 0), iconTransformation(origin = {-93.298, -3.332}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Sensors.Interfaces.SignalBus vC annotation(Placement(visible = true, transformation(origin = {-95, -65}, extent = {{-15, -15}, {15, 15}}, rotation = 0), iconTransformation(origin = {-93.87, -70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
