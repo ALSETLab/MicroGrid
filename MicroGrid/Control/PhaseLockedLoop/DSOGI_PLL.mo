@@ -25,14 +25,12 @@ model DSOGI_PLL
   Interfaces.park park1 annotation(Placement(visible = true, transformation(origin = {113.343, 0}, extent = {{-16.657, -16.657}, {16.657, 16.657}}, rotation = 0)));
   Interfaces.Real2Control real2Control3 annotation(Placement(visible = true, transformation(origin = {150, -68.343}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
   Interfaces.Control2Real control2Real4 annotation(Placement(visible = true, transformation(origin = {148.067, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Blocks.Continuous.PI PI(k = 4 * pi * Freq_PI * Xi_PI * sqrt(3) / (VLine * sqrt(2)), T = 2 * Xi_PI / (2 * pi * Freq_PI)) annotation(Placement(visible = true, transformation(origin = {174.763, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Modelica.Blocks.Continuous.PI PI(k = 4 * pi * Freq_PI * Xi_PI * sqrt(3) / (VLine * sqrt(2)), T = 2 * Xi_PI / (2 * pi * Freq_PI), initType = Modelica.Blocks.Types.Init.InitialOutput) annotation(Placement(visible = true, transformation(origin = {174.763, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Math.Add add3 annotation(Placement(visible = true, transformation(origin = {205, -35.859}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.Constant const(k = 2 * pi * SysFreq) annotation(Placement(visible = true, transformation(origin = {150, -50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Blocks.Continuous.Integrator integrator1 annotation(Placement(visible = true, transformation(origin = {235, -35.859}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Modelica.Blocks.Continuous.Integrator integrator1(initType = Modelica.Blocks.Types.Init.InitialOutput) annotation(Placement(visible = true, transformation(origin = {235, -35.859}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Interfaces.SignalBus vD annotation(Placement(visible = true, transformation(origin = {275, 35}, extent = {{-15, -15}, {15, 15}}, rotation = 0), iconTransformation(origin = {92.38, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Interfaces.SignalBus vQ annotation(Placement(visible = true, transformation(origin = {275, -35}, extent = {{-15, -15}, {15, 15}}, rotation = 0), iconTransformation(origin = {91.904, -35.236}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  // inte = vq*delta; omega = kp_pll*vq + ki_pll*inte;
-  // Vpico = 220*sqrt(2)/sqrt(3); kp_pll = 2*377*0.707/Vpico; ki_pll = kp_pll*Vpico/(377^2)
 equation
   connect(vA, ClarkeTransform.v_A) annotation(Line(visible = true, origin = {-90.149, 28.491}, points = {{-4.851, 36.509}, {-4.851, -18.255}, {9.702, -18.255}}, color = {255, 0, 0}));
   connect(vB, ClarkeTransform.v_B) annotation(Line(visible = true, origin = {-90.174, -0}, points = {{-4.826, 0}, {-4.826, -0}, {9.651, -0}}, color = {255, 0, 0}));
