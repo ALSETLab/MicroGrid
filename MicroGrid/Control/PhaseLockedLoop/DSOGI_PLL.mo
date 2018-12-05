@@ -6,6 +6,8 @@ model DSOGI_PLL
   parameter Real SysFreq = 60 "System nominal frequency, in hertz";
   parameter Real VLine = 220 "System nominal RMS line voltage";
   parameter Real sogiGain = 1.41 "SOGI pass band filter gain";
+  parameter Real Freq_PI = 100 "Cut-off frequency for CL synchronous reference frame PI block";
+  parameter Real Xi_PI = 0.7 "Desired damping coefficient for CL synchronous reference frame";
   Sensors.Interfaces.SignalBus vA annotation(Placement(visible = true, transformation(origin = {-95, 65}, extent = {{-15, -15}, {15, 15}}, rotation = 0), iconTransformation(origin = {-93.848, 63.808}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Sensors.Interfaces.SignalBus vB annotation(Placement(visible = true, transformation(origin = {-95, 0}, extent = {{-15, -15}, {15, 15}}, rotation = 0), iconTransformation(origin = {-93.298, -3.332}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Sensors.Interfaces.SignalBus vC annotation(Placement(visible = true, transformation(origin = {-95, -65}, extent = {{-15, -15}, {15, 15}}, rotation = 0), iconTransformation(origin = {-93.87, -70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -23,7 +25,7 @@ model DSOGI_PLL
   Interfaces.park park1 annotation(Placement(visible = true, transformation(origin = {113.343, 0}, extent = {{-16.657, -16.657}, {16.657, 16.657}}, rotation = 0)));
   Interfaces.Real2Control real2Control3 annotation(Placement(visible = true, transformation(origin = {150, -68.343}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
   Interfaces.Control2Real control2Real4 annotation(Placement(visible = true, transformation(origin = {148.067, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Blocks.Continuous.PI PI annotation(Placement(visible = true, transformation(origin = {174.763, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Modelica.Blocks.Continuous.PI PI(k = 4 * pi * Freq_PI * Xi_PI * sqrt(3) / (VLine * sqrt(2)), T = 2 * Xi_PI / (2 * pi * Freq_PI)) annotation(Placement(visible = true, transformation(origin = {174.763, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Math.Add add3 annotation(Placement(visible = true, transformation(origin = {205, -35.859}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.Constant const(k = 2 * pi * SysFreq) annotation(Placement(visible = true, transformation(origin = {150, -50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Continuous.Integrator integrator1 annotation(Placement(visible = true, transformation(origin = {235, -35.859}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
