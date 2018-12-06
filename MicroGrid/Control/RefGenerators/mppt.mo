@@ -36,4 +36,5 @@ algorithm
       end if;
     end if;
   end when;
+  annotation(Icon(coordinateSystem(preserveAspectRatio = false, extent = {{-100, -100}, {100, 100}}, initialScale = 0.1, grid = {10, 10}), graphics = {Rectangle(visible = true, origin = {0, -1.101}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, lineThickness = 0.75, extent = {{-80, -81.101}, {80, 81.101}}), Line(visible = true, points = {{-34, -34}, {-10, 4}, {14, 30}, {32, 30}, {36, -32}}, smooth = Smooth.Bezier), Ellipse(visible = true, fillColor = {255, 0, 0}, pattern = LinePattern.None, fillPattern = FillPattern.Solid, extent = {{14, 24}, {26, 36}})}), Diagram(coordinateSystem(preserveAspectRatio = false)));
 end mppt;
