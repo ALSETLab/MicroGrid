@@ -1,5 +1,5 @@
 within MicroGrid;
-package Storage
-   extends Modelica.Icons.Package;
 
+package Storage
+  extends Modelica.Icons.SourcesPackage;
 end Storage;
