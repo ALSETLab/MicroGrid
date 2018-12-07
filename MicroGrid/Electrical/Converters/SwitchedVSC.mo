@@ -2,12 +2,12 @@ within MicroGrid.Electrical.Converters;
 
 model SwitchedVSC "AC/DC Voltage Sourced Converter"
   extends Modelica.Electrical.PowerConverters.Icons.Converter;
-  parameter Modelica.SIunits.Voltage Vdrop "Diode forward voltage drop";
-  parameter Modelica.SIunits.Resistance r_diode "Diode forward resistance";
-  parameter Modelica.SIunits.Conductance g_diode "Diode reverse conductance";
-  parameter Modelica.SIunits.Resistance r_switch "Switch forward resistance";
-  parameter Modelica.SIunits.Conductance g_switch "Switch reverse conductance";
-  //parameter Modelica.SIunits.Frequency f_s "Desired fixed switching frequency";
+  parameter Modelica.SIunits.Voltage Vdrop = 0 "Diode forward voltage drop";
+  parameter Modelica.SIunits.Resistance r_diode = 1E-5 "Diode forward resistance";
+  parameter Modelica.SIunits.Conductance g_diode = 1E-5 "Diode reverse conductance";
+  parameter Modelica.SIunits.Resistance r_switch = 1E-5 "Switch forward resistance";
+  parameter Modelica.SIunits.Conductance g_switch = 1E-5 "Switch reverse conductance";
+  parameter Modelica.SIunits.Frequency f_s = 20e3 "Desired fixed switching frequency";
   BasicComponents.switch switch(r_on = r_switch, g_off = g_switch) annotation(Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {-50, 46.118}), visible = true));
   BasicComponents.diode diode1(v_knee = Vdrop, r_on = r_diode, g_off = g_diode) annotation(Placement(visible = true, transformation(origin = {-32.89, 46.118}, extent = {{-10, -10}, {10, 10}}, rotation = -270)));
   BasicComponents.switch switch1(r_on = r_switch, g_off = g_switch) annotation(Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {-50, -45.107}), visible = true));
@@ -25,9 +25,10 @@ model SwitchedVSC "AC/DC Voltage Sourced Converter"
   Interfaces.PositivePin p1 annotation(Placement(visible = true, transformation(origin = {-96.047, 85.548}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-92.547, 83.215}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Interfaces.PositivePin p2 annotation(Placement(visible = true, transformation(origin = {-96.047, -0}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-95.658, 1.555}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Interfaces.PositivePin p3 annotation(Placement(visible = true, transformation(origin = {-95.658, -83.889}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-96.047, -80}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Control.Interfaces.SignalBus switching2 annotation(Placement(visible = true, transformation(origin = {-0, -97.806}, extent = {{-12.194, -12.194}, {12.194, 12.194}}, rotation = 0), iconTransformation(origin = {0, -96.825}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Control.Interfaces.SignalBus switching1 annotation(Placement(visible = true, transformation(origin = {-50, -97.754}, extent = {{-12.246, -12.246}, {12.246, 12.246}}, rotation = 0), iconTransformation(origin = {-50, -96.436}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Control.Interfaces.SignalBus switching3 annotation(Placement(visible = true, transformation(origin = {50, -97.806}, extent = {{-12.194, -12.194}, {12.194, 12.194}}, rotation = 0), iconTransformation(origin = {52.107, -97.991}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Control.Interfaces.SignalBus switching2 annotation(Placement(visible = true, transformation(origin = {0.026, -157.806}, extent = {{-12.194, -12.194}, {12.194, 12.194}}, rotation = 0), iconTransformation(origin = {0, -96.825}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Control.Interfaces.SignalBus switching1 annotation(Placement(visible = true, transformation(origin = {-49.974, -157.754}, extent = {{-12.246, -12.246}, {12.246, 12.246}}, rotation = 0), iconTransformation(origin = {-50, -96.436}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Control.Interfaces.SignalBus switching3 annotation(Placement(visible = true, transformation(origin = {50.026, -157.806}, extent = {{-12.194, -12.194}, {12.194, 12.194}}, rotation = 0), iconTransformation(origin = {52.107, -97.991}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Control.Modulation.TriangPWM_3Ph triangPWM_3Ph1(f = f_s) annotation(Placement(visible = true, transformation(origin = {0, -114.562}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
 equation
   connect(switch.p, diode1.n) annotation(Line(visible = true, origin = {-41.445, 57.059}, points = {{-8.555, -2.941}, {-8.555, 2.941}, {8.555, 2.941}, {8.555, -2.941}}, color = {0, 0, 255}));
   connect(switch.n, diode1.p) annotation(Line(visible = true, origin = {-41.445, 34.671}, points = {{-8.555, 3.446}, {-8.555, -3.446}, {8.555, -3.446}, {8.555, 3.446}}, color = {0, 0, 255}));
@@ -53,4 +54,14 @@ equation
   connect(p1, switch.n) annotation(Line(visible = true, origin = {-73.024, 37.916}, points = {{-23.024, 47.632}, {-23.024, -23.917}, {23.024, -23.917}, {23.024, 0.202}}, color = {0, 0, 255}));
   connect(p2, switch2.n) annotation(Line(visible = true, origin = {-32.016, 12.706}, points = {{-64.031, -12.706}, {32.016, -12.706}, {32.016, 25.412}}, color = {0, 0, 255}));
   connect(p3, switch5.p) annotation(Line(visible = true, origin = {-22.829, -36.859}, points = {{-72.829, -47.029}, {-72.829, 23.638}, {72.829, 23.638}, {72.829, -0.248}}, color = {0, 0, 255}));
+  connect(triangPWM_3Ph1.mB_index, switching2) annotation(Line(visible = true, origin = {-0.088, -144.133}, points = {{-0.114, 10.63}, {-0.114, 1.521}, {0.114, 1.521}, {0.114, -13.673}}, color = {0, 128, 0}));
+  connect(triangPWM_3Ph1.mC_index, switching3) annotation(Line(visible = true, origin = {27.342, -149.791}, points = {{-11.342, 16.029}, {-11.342, -8.015}, {22.684, -8.015}}, color = {0, 128, 0}));
+  connect(triangPWM_3Ph1.mA_index, switching1) annotation(Line(visible = true, origin = {-27.134, -149.69}, points = {{11.42, 16.128}, {11.42, -8.064}, {-22.84, -8.064}}, color = {0, 128, 0}));
+  connect(triangPWM_3Ph1.fireA, switch.control) annotation(Line(visible = true, origin = {-46.233, -36.065}, points = {{29.15, -56.497}, {29.15, -53.935}, {-23.767, -53.935}, {-23.767, 82.183}, {-10.767, 82.183}}, color = {190, 52, 178}));
+  connect(triangPWM_3Ph1.fireA_compl, switch1.control) annotation(Line(visible = true, origin = {-42.303, -68.555}, points = {{30.303, -24.007}, {30.303, -11.445}, {-22.954, -11.445}, {-22.954, 23.448}, {-14.697, 23.448}}, color = {190, 52, 178}));
+  connect(triangPWM_3Ph1.fireC, switch4.control) annotation(Line(visible = true, origin = {25.399, -32.065}, points = {{-13.399, -60.497}, {-13.399, -47.935}, {4.601, -47.935}, {4.601, 78.183}, {17.598, 78.183}}, color = {190, 52, 178}));
+  connect(triangPWM_3Ph1.fireB, switch2.control) annotation(Line(visible = true, origin = {-10.407, -28.065}, points = {{7.889, -64.497}, {7.889, -41.935}, {-9.593, -41.935}, {-9.593, 74.183}, {3.407, 74.183}}, color = {190, 52, 178}));
+  connect(triangPWM_3Ph1.fireB_compl, switch3.control) annotation(Line(visible = true, origin = {-6.215, -60.555}, points = {{8.819, -32.007}, {8.819, 0.555}, {-8.426, 0.555}, {-8.426, 15.448}, {-0.785, 15.448}}, color = {190, 52, 178}));
+  connect(triangPWM_3Ph1.fireC_compl, switch5.control) annotation(Line(visible = true, origin = {29.268, -72.38}, points = {{-12.319, -20.182}, {-12.319, -17.182}, {5.452, -17.182}, {5.452, 27.273}, {13.732, 27.273}}, color = {190, 52, 178}));
+  annotation(Diagram(coordinateSystem(extent = {{-100, -160}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {10, 10})));
 end SwitchedVSC;
