@@ -31,6 +31,7 @@ model DSOGI_PLL
   Modelica.Blocks.Continuous.Integrator integrator1(initType = Modelica.Blocks.Types.Init.InitialOutput) annotation(Placement(visible = true, transformation(origin = {235, -35.859}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Interfaces.SignalBus vD annotation(Placement(visible = true, transformation(origin = {275, 35}, extent = {{-15, -15}, {15, 15}}, rotation = 0), iconTransformation(origin = {92.38, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Interfaces.SignalBus vQ annotation(Placement(visible = true, transformation(origin = {275, -35}, extent = {{-15, -15}, {15, 15}}, rotation = 0), iconTransformation(origin = {91.904, -35.236}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Interfaces.SignalBus Delta annotation(Placement(visible = true, transformation(origin = {80, -96.625}, extent = {{-15, -15}, {15, 15}}, rotation = 0), iconTransformation(origin = {-0, -95.957}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(vA, ClarkeTransform.v_A) annotation(Line(visible = true, origin = {-90.149, 28.491}, points = {{-4.851, 36.509}, {-4.851, -18.255}, {9.702, -18.255}}, color = {255, 0, 0}));
   connect(vB, ClarkeTransform.v_B) annotation(Line(visible = true, origin = {-90.174, -0}, points = {{-4.826, 0}, {-4.826, -0}, {9.651, -0}}, color = {255, 0, 0}));
@@ -58,5 +59,6 @@ equation
   connect(real2Control3.OutputSignal, park1.Delta) annotation(Line(visible = true, origin = {122.396, -50.761}, points = {{18.104, -17.482}, {-9.052, -17.482}, {-9.052, 34.964}}, color = {0, 128, 0}));
   connect(park1.v_q, vQ) annotation(Line(visible = true, origin = {229.396, -20.831}, points = {{-100.811, 14.168}, {27.604, 14.169}, {27.604, -14.169}, {45.604, -14.169}}, color = {0, 128, 0}));
   connect(park1.v_d, vD) annotation(Line(visible = true, origin = {229.587, 20.831}, points = {{-100.864, -14.168}, {27.726, -14.169}, {27.726, 14.169}, {45.413, 14.169}}, color = {0, 128, 0}));
+  connect(real2Control3.OutputSignal, Delta) annotation(Line(visible = true, origin = {104.125, -82.434}, points = {{36.375, 14.191}, {-6.125, 14.191}, {-6.125, -14.191}, {-24.125, -14.191}}, color = {0, 128, 0}));
   annotation(Icon(coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {10, 10}), graphics = {Text(visible = true, origin = {2.129, -3.347}, extent = {{-74.033, -36.653}, {74.033, 36.653}}, textString = "DSOGI-PLL")}), Diagram(coordinateSystem(extent = {{-100, -100}, {280, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {10, 10})));
 end DSOGI_PLL;
