@@ -25,11 +25,14 @@ model MicroGrid_Example
   Electrical.Converters.SwitchedVSC VSC annotation(Placement(visible = true, transformation(origin = {118.529, 0}, extent = {{-18.529, -18.529}, {18.529, 18.529}}, rotation = 0)));
   Electrical.BasicComponents.capacitor capacitor1(v.fixed = true) annotation(Placement(visible = true, transformation(origin = {166.95, -0}, extent = {{-16.95, -16.95}, {16.95, 16.95}}, rotation = -90)));
   Electrical.Converters.SwitchedBoost Boost annotation(Placement(visible = true, transformation(origin = {200, -42.219}, extent = {{15, -15}, {-15, 15}}, rotation = 270)));
-  PhotoVoltaics.PV_module pV_module1 annotation(Placement(visible = true, transformation(origin = {200, -110}, extent = {{15.769, -15.769}, {-15.769, 15.769}}, rotation = 0)));
+  PhotoVoltaics.PV_module pV_module1 annotation(Placement(visible = true, transformation(origin = {200, -130}, extent = {{15.769, -15.769}, {-15.769, 15.769}}, rotation = 0)));
   Electrical.Converters.SwitchedBuckBoost BuckBoost annotation(Placement(visible = true, transformation(origin = {225, 45}, extent = {{-15, -15}, {15, 15}}, rotation = -270)));
   Storage.Battery battery1 annotation(Placement(visible = true, transformation(origin = {225, 85}, extent = {{-15, -15}, {15, 15}}, rotation = 0)));
   Electrical.Sources.currentDC currentDC1 annotation(Placement(visible = true, transformation(origin = {275, -0}, extent = {{-15, -15}, {15, 15}}, rotation = -90)));
-  Control.Interfaces.abc2dq abc2dq1 annotation(Placement(visible = true, transformation(origin = {50, -55}, extent = {{15, -15}, {-15, 15}}, rotation = 90)));
+  Control.Interfaces.abc2dq abc2dq1 annotation(Placement(visible = true, transformation(origin = {50, -53.352}, extent = {{15, -15}, {-15, 15}}, rotation = 90)));
+  Sensors.voltageSensor voltageSensor1 annotation(Placement(visible = true, transformation(origin = {200, -100}, extent = {{12.214, 12.214}, {-12.214, -12.214}}, rotation = 0)));
+  Sensors.currentSensor currentSensor1 annotation(Placement(visible = true, transformation(origin = {212.841, -75.423}, extent = {{-12.841, 12.841}, {12.841, -12.841}}, rotation = 90)));
+  Control.RefGenerators.mppt mppt1 annotation(Placement(visible = true, transformation(origin = {167.171, -77.171}, extent = {{12.829, 12.829}, {-12.829, -12.829}}, rotation = 0)));
 equation
   connect(ground1.p, threePhaseAC1.gnd) annotation(Line(visible = true, origin = {-173.593, -0}, points = {{-4.224, -0}, {4.224, 0}}, color = {0, 0, 255}));
   connect(resistor1.n, inductor1.p) annotation(Line(visible = true, origin = {-68.781, 10}, points = {{-5.953, 0}, {5.953, 0}}, color = {0, 0, 255}));
@@ -69,9 +72,16 @@ equation
   connect(capacitor1.n, currentDC1.n) annotation(Line(visible = true, origin = {220.975, -17.115}, points = {{-54.025, 3.555}, {-54.025, -2.835}, {54.025, -2.835}, {54.025, 2.115}}, color = {0, 0, 255}));
   connect(capacitor1.p, currentDC1.p) annotation(Line(visible = true, origin = {220.975, 17.115}, points = {{-54.025, -3.555}, {-54.025, 2.835}, {54.025, 2.835}, {54.025, -2.115}}, color = {0, 0, 255}));
   connect(threePhaseAC1.p3, resistor3.p) annotation(Line(visible = true, origin = {-105.271, -9.733}, points = {{-33.804, 0.267}, {9.601, 0.267}, {9.601, -0.267}, {14.601, -0.267}}, color = {0, 0, 255}));
-  connect(abc2dq1.v_C, Sensor_Cc.currSignal) annotation(Line(visible = true, origin = {65.3, -34.118}, points = {{-4.8, -7.005}, {-4.8, 1.118}, {4.8, 1.118}, {4.8, 4.768}}, color = {255, 0, 0}));
-  connect(abc2dq1.v_B, Sensor_Cb.currSignal) annotation(Line(visible = true, origin = {50.279, -19.118}, points = {{0.179, -22.005}, {0.179, 6.118}, {-0.179, 6.118}, {-0.179, 9.768}}, color = {255, 0, 0}));
-  connect(abc2dq1.v_A, Sensor_Ca.currSignal) annotation(Line(visible = true, origin = {35.196, -23.689}, points = {{5.096, -17.434}, {5.096, -8.452}, {-5.096, -8.452}, {-5.096, 34.339}}, color = {255, 0, 0}));
-  connect(dSOGI_PLL1.Delta, abc2dq1.Delta) annotation(Line(visible = true, origin = {26.345, -83.827}, points = {{-72.596, -16.767}, {-72.596, -20.444}, {53.655, -20.444}, {53.655, 28.827}, {37.881, 28.827}}, color = {0, 128, 0}));
+  connect(abc2dq1.v_C, Sensor_Cc.currSignal) annotation(Line(visible = true, origin = {65.3, -33.706}, points = {{-4.8, -5.769}, {-4.8, 0.706}, {4.8, 0.706}, {4.8, 4.356}}, color = {255, 0, 0}));
+  connect(abc2dq1.v_B, Sensor_Cb.currSignal) annotation(Line(visible = true, origin = {50.279, -18.706}, points = {{0.179, -20.769}, {0.179, 5.706}, {-0.179, 5.706}, {-0.179, 9.356}}, color = {255, 0, 0}));
+  connect(abc2dq1.v_A, Sensor_Ca.currSignal) annotation(Line(visible = true, origin = {35.196, -23.689}, points = {{5.096, -15.786}, {5.096, -8.452}, {-5.096, -8.452}, {-5.096, 34.339}}, color = {255, 0, 0}));
+  connect(dSOGI_PLL1.Delta, abc2dq1.Delta) annotation(Line(visible = true, origin = {26.345, -83.827}, points = {{-72.596, -16.767}, {-72.596, -20.444}, {53.655, -20.444}, {53.655, 30.475}, {37.881, 30.475}}, color = {0, 128, 0}));
+  connect(Boost.Input_p, currentSensor1.n) annotation(Line(visible = true, origin = {212.42, -60.592}, points = {{-0.42, 3.973}, {-0.42, -0.991}, {0.42, -0.991}, {0.42, -1.991}}, color = {0, 0, 255}));
+  connect(currentSensor1.p, voltageSensor1.p) annotation(Line(visible = true, origin = {212.632, -96.088}, points = {{0.209, 7.824}, {0.209, -3.912}, {-0.417, -3.912}}, color = {0, 0, 255}));
+  connect(voltageSensor1.p, pV_module1.p) annotation(Line(visible = true, origin = {214.592, -115}, points = {{-2.377, 15}, {2.177, 15}, {2.177, -15}, {-1.977, -15}}, color = {0, 0, 255}));
+  connect(pV_module1.n, voltageSensor1.n) annotation(Line(visible = true, origin = {185.408, -115}, points = {{1.977, -15}, {-2.177, -15}, {-2.177, 15}, {2.377, 15}}, color = {0, 0, 255}));
+  connect(voltageSensor1.n, Boost.Input_n) annotation(Line(visible = true, origin = {186.671, -75.547}, points = {{1.114, -24.453}, {-1.886, -24.453}, {-1.886, 14.99}, {1.329, 14.99}, {1.329, 18.927}}, color = {0, 0, 255}));
+  connect(mppt1.u, voltageSensor1.voltSignal) annotation(Line(visible = true, origin = {193.1, -84.659}, points = {{-13.8, 1.96}, {6.9, 1.96}, {6.9, -3.921}}, color = {255, 0, 0}));
+  connect(mppt1.i, currentSensor1.currSignal) annotation(Line(visible = true, origin = {193.557, -73.248}, points = {{-14.164, 2.047}, {3.443, 2.047}, {3.443, -2.047}, {7.278, -2.047}}, color = {255, 0, 0}));
   annotation(Diagram(coordinateSystem(extent = {{-200, -160}, {400, 120}}, preserveAspectRatio = true, initialScale = 0.1, grid = {10, 10})));
 end MicroGrid_Example;

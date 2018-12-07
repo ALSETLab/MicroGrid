@@ -1,5 +1,5 @@
 within MicroGrid.Control;
+
 package Feedback
-	extends Modelica.Icons.Package;
-	
+  extends Modelica.Icons.Package;
 end Feedback;
