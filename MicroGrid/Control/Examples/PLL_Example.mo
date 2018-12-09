@@ -39,7 +39,7 @@ equation
   connect(V_Q.numberPort, control2Real2.OutputReal) annotation(Line(visible = true, origin = {25.75, -76.111}, points = {{-4.25, 0}, {4.25, 0}}, color = {1, 37, 163}));
   connect(control2Real1.InputSignal, dSOGI_PLL1.vD) annotation(Line(visible = true, origin = {51.237, -61.287}, points = {{-2.137, -4.735}, {1.069, -4.735}, {1.069, 9.47}}, color = {0, 128, 0}));
   connect(control2Real2.InputSignal, dSOGI_PLL1.vQ) annotation(Line(visible = true, origin = {58.883, -68.052}, points = {{-9.783, -8.159}, {4.891, -8.159}, {4.891, 16.318}}, color = {0, 128, 0}));
-  connect(dSOGI_PLL1.Delta, control2Real3.InputSignal) annotation(Line(visible = true, origin = {73.486, -59.867}, points = {{1.039, 27.066}, {11.673, 27.066}, {11.673, -27.066}, {-24.386, -27.066}}, color = {0, 128, 0}));
+  connect(dSOGI_PLL1.Delta, control2Real3.InputSignal) annotation(Line(visible = true, origin = {73.486, -59.867}, points = {{0.963, 24.29}, {11.673, 24.29}, {11.673, -27.066}, {-24.386, -27.066}}, color = {0, 128, 0}));
   connect(V_Q1.numberPort, control2Real3.OutputReal) annotation(Line(visible = true, origin = {25.75, -86.833}, points = {{-4.25, 0}, {4.25, 0}}, color = {1, 37, 163}));
   annotation(experiment(StopTime = 1.0));
 end PLL_Example;

@@ -8,7 +8,7 @@ model PWM_3Ph_Example
   Interfaces.Real2Control real2Control2 annotation(Placement(visible = true, transformation(origin = {0, -33.842}, extent = {{-12.887, -12.887}, {12.887, 12.887}}, rotation = -270)));
   Modelica.Blocks.Sources.Sine sine3(freqHz = 60, amplitude = 0.8, phase = -4.18879020478639) annotation(Placement(visible = true, transformation(origin = {40, -76.947}, extent = {{-13.053, -13.053}, {13.053, 13.053}}, rotation = -270)));
   Interfaces.Real2Control real2Control3 annotation(Placement(visible = true, transformation(origin = {40, -33.894}, extent = {{-12.887, -12.887}, {12.887, 12.887}}, rotation = -270)));
-  Electrical.Converters.SwitchedVSC switchedVSC1(g_switch = 1e-5) annotation(Placement(visible = true, transformation(origin = {0, 20}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+  Electrical.Converters.SwitchedVSC switchedVSC1(g_switch = 1e-5, f_s = 1e3) annotation(Placement(visible = true, transformation(origin = {0, 20}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   Electrical.Sources.voltageDC voltageDC1(V = 400) annotation(Placement(visible = true, transformation(origin = {55, 20}, extent = {{-20, -20}, {20, 20}}, rotation = -90)));
   Electrical.BasicComponents.ground ground1 annotation(Placement(visible = true, transformation(origin = {-93.702, 20}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Electrical.BasicComponents.resistor resistor1 annotation(Placement(visible = true, transformation(origin = {-50, 35.975}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
