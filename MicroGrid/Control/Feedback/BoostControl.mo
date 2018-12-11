@@ -17,7 +17,7 @@ equation
   connect(control2Real1.OutputReal, feedback1.u1) annotation(Line(visible = true, origin = {-43.5, -40}, points = {{-6.5, 0}, {6.5, 0}}, color = {1, 37, 163}));
   connect(V_ref, control2Real1.InputSignal) annotation(Line(visible = true, origin = {-89.55, -40.1}, points = {{-5.45, 0.1}, {-5.45, -0.05}, {10.9, -0.05}}, color = {0, 128, 0}));
   connect(V_measured, sensor2Real1.InputSignal) annotation(Line(visible = true, origin = {-89.55, 39.9}, points = {{-5.45, 0.1}, {-5.45, -0.05}, {10.9, -0.05}}, color = {255, 0, 0}));
-  connect(PI.y, real2Control1.InputReal) annotation(Line(visible = true, origin = {41.482, 0}, points = {{-4.982, 0}, {4.982, -0}}, color = {1, 37, 163}));
+  connect(PI.y, real2Control1.InputReal) annotation(Line(visible = true, origin = {41.482, 0}, points = {{-4.982, 0}, {4.982, 0}}, color = {1, 37, 163}));
   connect(real2Control1.OutputSignal, DutyRatio) annotation(Line(visible = true, origin = {81.927, 0.075}, points = {{-7.639, 0.075}, {-2.759, 0.075}, {-2.759, -0.075}, {13.157, -0.075}}, color = {0, 128, 0}));
   connect(feedback1.y, PI.u) annotation(Line(visible = true, origin = {-5.875, -20}, points = {{-5.625, -20}, {-1.125, -20}, {-1.125, 20}, {7.875, 20}}, color = {1, 37, 163}));
   annotation(Icon(coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {10, 10}), graphics = {Text(visible = true, origin = {4.214, -1.926}, extent = {{-65.786, -38.074}, {65.786, 38.074}}, textString = "BoostControl")}));
