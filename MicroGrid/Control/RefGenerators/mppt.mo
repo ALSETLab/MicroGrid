@@ -5,8 +5,8 @@ model mppt
   Sensors.Interfaces.SignalBus u annotation(Placement(visible = true, transformation(origin = {-95.876, 40}, extent = {{-15.876, -15.876}, {15.876, 15.876}}, rotation = 0), iconTransformation(origin = {-94.539, 43.086}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Sensors.Interfaces.SignalBus i annotation(Placement(visible = true, transformation(origin = {-95, -40}, extent = {{-15, -15}, {15, 15}}, rotation = 0), iconTransformation(origin = {-95.269, -46.532}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Interfaces.SignalBus y annotation(Placement(visible = true, transformation(origin = {95, -0}, extent = {{-15, -15}, {15, 15}}, rotation = 0), iconTransformation(origin = {94.539, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  parameter Real Ts = 0.1;
-  parameter Real deltaVpvRefPanel = 0.5;
+  parameter Real Ts;
+  parameter Real deltaVpvRefPanel;
   Real pot;
   Real potActFiltered;
   discrete Real potact;

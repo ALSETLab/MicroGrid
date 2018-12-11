@@ -2,31 +2,33 @@ within MicroGrid.PhotoVoltaics;
 
 model PV_module
   extends MicroGrid.Electrical.Interfaces.OnePort;
-  replaceable record moduleData = MicroGrid.PhotoVoltaics.Records constrainedby MicroGrid.PhotoVoltaics.Records.ModuleData annotation(choicesAllMatching, Placement(visible = true, transformation(origin = {80, 80}, extent = {{-20, -20}, {20, 20}}, rotation = -360), iconTransformation(origin = {-50, -80}, extent = {{-20, -20}, {20, 20}}, rotation = -270)));
+  parameter MicroGrid.PhotoVoltaics.Records.ModuleData moduleData annotation(Placement(visible = true, transformation(origin = {80, 80}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-20, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+  parameter Integer Np = 1;
+  parameter Integer Ns = 1;
   Modelica.Blocks.Interfaces.RealInput Irr annotation(Placement(visible = true, transformation(origin = {-40, -100}, extent = {{-20, -20}, {20, 20}}, rotation = -270), iconTransformation(origin = {-50, -80}, extent = {{-20, -20}, {20, 20}}, rotation = -270)));
   Modelica.Blocks.Interfaces.RealInput T annotation(Placement(visible = true, transformation(origin = {40, -100}, extent = {{-20, -20}, {20, 20}}, rotation = -270), iconTransformation(origin = {50, -80}, extent = {{-20, -20}, {20, 20}}, rotation = -270)));
   Real Ac = 1.6;
   Real Eg = 1.1;
-  Real q = ModuleData.Q;
-  Real lambdaRef = ModuleData.irradianceRef;
-  Real Isc = ModuleData.IscRef;
-  Real Voc = ModuleData.VocRef;
-  Real Tref = ModuleData.TRef;
+  Real q = moduleData.Q;
+  Real lambdaRef = moduleData.irradianceRef;
+  Real Isc = moduleData.IscRef;
+  Real Voc = moduleData.VocRef;
+  Real Tref = moduleData.TRef;
   Real K = Modelica.Constants.k;
-  Real K1 = ModuleData.alphaIsc;
-  Real K2 = ModuleData.alphaVoc;
+  Real K1 = moduleData.alphaIsc;
+  Real K2 = moduleData.alphaVoc;
   Real Rspv = 0.01;
-  Integer Ns = ModuleData.ns;
-  Integer Np = ModuleData.nb;
+  Integer ns = moduleData.ns;
   Real Ior = 1.0647e-6;
   Real Iph;
-  Real Irs = Ior * (T / Tref) ^ 3 * Modelica.Math.exp(q * Eg / (K * Ac) * (1 / Tref - 1 / T));
+  Real Irs = Ior * (T / Tref) ^ 3 * Modelica.Math.exp(q * Eg * (1 / Tref - 1 / T) / K / Ac);
   Real exponent;
   Real Ipv;
   Real Vpv;
 equation
-  Vpv = v;
-  exponent = q / (K * Ac * T) * (Voc * (1 + K2 * (T - Tref)) / Ns);
+  v = Ns * Vpv;
+  exponent = q / (K * Ac * T) * (Vpv / ns + Rspv * Ipv / ns);
+  //oc * (1 + K2 * (T - Tref))
   Iph = (Isc + K1 * (T - Tref)) * Irr / lambdaRef;
   Ipv = Np * Iph - Np * Irs * (Modelica.Math.exp(exponent) - 1);
   Ipv + i = 0;

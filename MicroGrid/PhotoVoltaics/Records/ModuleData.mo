@@ -3,8 +3,9 @@ within MicroGrid.PhotoVoltaics.Records;
 record ModuleData "Data of PV module"
   extends Modelica.Icons.Record;
   parameter String moduleName = "Generic";
+  constant Modelica.SIunits.Charge Q = 1.6021766208E-19 "Elementary charge of electron";
   parameter Modelica.SIunits.Temperature TRef = 298.15 "Reference temperature" annotation(Dialog(group = "Reference data"));
-  parameter Modelica.SIunits.Irradiance irradianceRef = 1000 "Reference solar irradiance" annotation(Dialog(group = "Reference data"));
+  final parameter Modelica.SIunits.Irradiance irradianceRef = 1000 "Reference solar irradiance" annotation(Dialog(group = "Reference data"));
   parameter Modelica.SIunits.Voltage VocRef(min = Modelica.Constants.small) = 30.2 "Reference open circuit module voltage > 0 at TRref" annotation(Dialog(group = "Reference data"));
   final parameter Modelica.SIunits.Voltage VocCellRef = VocRef / ns "Reference open circuit cell voltage > 0 at TRref";
   parameter Modelica.SIunits.Current IscRef(min = Modelica.Constants.small) = 8.54 "Reference short circuit current > 0 at TRref and irradianceRef" annotation(Dialog(group = "Reference data"));
@@ -19,7 +20,6 @@ record ModuleData "Data of PV module"
   parameter Modelica.SIunits.Current Ibv = 1 "Breakthrough knee current" annotation(Dialog(group = "Breakthrough data"));
   parameter Real Nbv = 0.74 "Breakthrough emission coefficient" annotation(Dialog(group = "Breakthrough data"));
   final parameter Modelica.SIunits.Voltage VtCellRef = Modelica.Constants.k * TRef / Q "Reference temperature voltage of cell";
-  constant Modelica.SIunits.Charge Q = 1.6021766208E-19 "Elementary charge of electron";
   annotation(defaultComponentName = "moduleData", defaultComponentPrefixes = "parameter", Icon(coordinateSystem(preserveAspectRatio = false), graphics = {Text(lineColor = {0, 0, 255}, extent = {{-200, -150}, {200, -110}}, textString = "%moduleName")}), Diagram(coordinateSystem(preserveAspectRatio = false)), Documentation(info = "<html>
 <p>This record defines parameters provided by photovoltaic module manufacturers.</p>
 </html>"));
