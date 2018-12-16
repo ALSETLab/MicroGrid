@@ -17,12 +17,12 @@ model MicroGrid_Example
   Electrical.BasicComponents.ground ground2 annotation(Placement(visible = true, transformation(origin = {-118.05, -145}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Sensors.voltageSensor Sensor_Vb annotation(Placement(visible = true, transformation(origin = {-117.719, -95}, extent = {{-10, 10}, {10, -10}}, rotation = 270)));
   Sensors.voltageSensor Sensor_Vc annotation(Placement(visible = true, transformation(origin = {-102.386, -115}, extent = {{-10, 10}, {10, -10}}, rotation = 270)));
-  Modelica.Blocks.Sources.BooleanStep booleanStep1(startTime = 0.03, startValue = false) annotation(Placement(visible = true, transformation(origin = {-70, 50}, extent = {{-7.638, -7.638}, {7.638, 7.638}}, rotation = 0)));
+  Modelica.Blocks.Sources.BooleanStep booleanStep1(startTime = 0.01, startValue = false) annotation(Placement(visible = true, transformation(origin = {-70, 50}, extent = {{-7.638, -7.638}, {7.638, 7.638}}, rotation = 0)));
   Control.PhaseLockedLoop.DSOGI_PLL dSOGI_PLL1 annotation(Placement(visible = true, transformation(origin = {-50, -103.749}, extent = {{-16.251, -16.251}, {16.251, 16.251}}, rotation = 0)));
   Sensors.currentSensor Sensor_Ca annotation(Placement(visible = true, transformation(origin = {30, 20}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
   Sensors.currentSensor Sensor_Cb annotation(Placement(visible = true, transformation(origin = {50, 0}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
   Sensors.currentSensor Sensor_Cc annotation(Placement(visible = true, transformation(origin = {70, -20}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
-  Electrical.Converters.SwitchedVSC VSC(f_s = 20e3) annotation(Placement(visible = true, transformation(origin = {118.529, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+  Electrical.Converters.SwitchedVSC VSC(f_s = 15e3) annotation(Placement(visible = true, transformation(origin = {118.529, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   Electrical.BasicComponents.capacitor capacitor1(v.fixed = true, v.start = 400, C = 0.002) annotation(Placement(visible = true, transformation(origin = {176.95, 0}, extent = {{-16.95, -16.95}, {16.95, 16.95}}, rotation = -90)));
   Electrical.Sources.currentDC currentDC1 annotation(Placement(visible = true, transformation(origin = {275, -0}, extent = {{-15, -15}, {15, 15}}, rotation = -90)));
   Control.Interfaces.abc2dq abc2dq1 annotation(Placement(visible = true, transformation(origin = {50, -53.352}, extent = {{15, -15}, {-15, 15}}, rotation = 90)));
@@ -104,5 +104,5 @@ equation
   connect(Sensor_Cb.p, VSC.p2) annotation(Line(visible = true, origin = {87.389, 0.155}, points = {{-27.389, -0.155}, {7.69, -0.155}, {7.69, 0.155}, {12.009, 0.155}}, color = {0, 0, 255}));
   connect(switch3.n, Sensor_Cc.n) annotation(Line(visible = true, origin = {40.5, -15}, points = {{-18.501, 5}, {-0.5, 5}, {-0.5, -5}, {19.5, -5}}, color = {0, 0, 255}));
   connect(Sensor_Cc.p, VSC.p3) annotation(Line(visible = true, origin = {92.369, -18}, points = {{-12.369, -2}, {2.71, -2}, {2.71, 2}, {6.95, 2}}, color = {0, 0, 255}));
-  annotation(experiment(StopTime = 1.0, Interval = 1e-6, __Wolfram_Algorithm = "explicit-euler"), Diagram(coordinateSystem(extent = {{-200, -258.368}, {400, 120}}, preserveAspectRatio = true, initialScale = 0.1, grid = {10, 10})));
+  annotation(experiment(StopTime = 0.7, Interval = 1e-4, __Wolfram_Algorithm = "dassl"), Diagram(coordinateSystem(extent = {{-200, -258.368}, {400, 120}}, preserveAspectRatio = true, initialScale = 0.1, grid = {10, 10})));
 end MicroGrid_Example;
