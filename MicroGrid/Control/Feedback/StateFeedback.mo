@@ -26,8 +26,8 @@ model StateFeedback
   Interfaces.Control2Real control2Real1 annotation(Placement(visible = true, transformation(origin = {-55, -25}, extent = {{-15, -15}, {15, 15}}, rotation = 0)));
   Interfaces.Control2Real control2Real2 annotation(Placement(visible = true, transformation(origin = {-55, 25}, extent = {{-15, -15}, {15, 15}}, rotation = 0)));
   Sensors.Interfaces.Sensor2Real sensor2Real1 annotation(Placement(visible = true, transformation(origin = {-55, 75}, extent = {{-15, -15}, {15, 15}}, rotation = 0)));
-  Modelica.Blocks.Math.Gain Kv_d(k = Kd_vdc) annotation(Placement(visible = true, transformation(origin = {0, 85.03}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Blocks.Math.Gain Kv_q(k = Kq_vdc) annotation(Placement(visible = true, transformation(origin = {0, 63.865}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Modelica.Blocks.Math.Gain Kv_d(k = -Kd_vdc) annotation(Placement(visible = true, transformation(origin = {0, 85.03}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Modelica.Blocks.Math.Gain Kv_q(k = -Kq_vdc) annotation(Placement(visible = true, transformation(origin = {0, 63.865}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Math.Feedback feedback1 annotation(Placement(visible = true, transformation(origin = {-30, 107.239}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Math.Gain Kid_d(k = Kd_id) annotation(Placement(visible = true, transformation(origin = {0, 36.135}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Math.Gain Kid_q(k = Kq_id) annotation(Placement(visible = true, transformation(origin = {0, 14.417}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -46,8 +46,8 @@ model StateFeedback
   Modelica.Blocks.Sources.Constant md(k = Md) annotation(Placement(visible = true, transformation(origin = {240, 71.657}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Math.Add3 SumQAxis2 annotation(Placement(visible = true, transformation(origin = {235, -25}, extent = {{-15, -15}, {15, 15}}, rotation = 0)));
   Modelica.Blocks.Math.Add3 SumDAxis2 annotation(Placement(visible = true, transformation(origin = {235, 25}, extent = {{-15, -15}, {15, 15}}, rotation = 0)));
-  Modelica.Blocks.Math.Add add1 annotation(Placement(visible = true, transformation(origin = {295, -35}, extent = {{-15, -15}, {15, 15}}, rotation = 0)));
-  Modelica.Blocks.Math.Add add2 annotation(Placement(visible = true, transformation(origin = {295, 35}, extent = {{-15, -15}, {15, 15}}, rotation = 0)));
+  Modelica.Blocks.Math.Add add1(k1 = -1, k2 = +1) annotation(Placement(visible = true, transformation(origin = {295, -35}, extent = {{-15, -15}, {15, 15}}, rotation = 0)));
+  Modelica.Blocks.Math.Add add2(k2 = -1) annotation(Placement(visible = true, transformation(origin = {295, 35}, extent = {{-15, -15}, {15, 15}}, rotation = 0)));
   Interfaces.Real2Control real2Control1 annotation(Placement(visible = true, transformation(origin = {335, 35}, extent = {{-15, -15}, {15, 15}}, rotation = 0)));
   Interfaces.Real2Control real2Control2 annotation(Placement(visible = true, transformation(origin = {335, -35}, extent = {{-15, -15}, {15, 15}}, rotation = 0)));
   Interfaces.dq2abc dq2abc1 annotation(Placement(visible = true, transformation(origin = {390, -0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
@@ -55,8 +55,6 @@ equation
   connect(v_dc, sensor2Real1.InputSignal) annotation(Line(visible = true, origin = {-77.412, 74.925}, points = {{-17.588, 0.075}, {4.412, 0.075}, {4.412, -0.075}, {8.762, -0.075}}, color = {255, 0, 0}));
   connect(i_d, control2Real2.InputSignal) annotation(Line(visible = true, origin = {-77.412, 24.925}, points = {{-17.588, 0.075}, {4.412, 0.075}, {4.412, -0.075}, {8.762, -0.075}}, color = {0, 128, 0}));
   connect(i_q, control2Real1.InputSignal) annotation(Line(visible = true, origin = {-77.412, -25.075}, points = {{-17.588, 0.075}, {4.412, 0.075}, {4.412, -0.075}, {8.762, -0.075}}, color = {0, 128, 0}));
-  connect(sensor2Real1.OutputReal, Kv_d.u) annotation(Line(visible = true, origin = {-20.5, 80.015}, points = {{-19.5, -5.015}, {5.5, -5.015}, {5.5, 5.015}, {8.5, 5.015}}, color = {1, 37, 163}));
-  connect(sensor2Real1.OutputReal, Kv_q.u) annotation(Line(visible = true, origin = {-20.5, 69.433}, points = {{-19.5, 5.567}, {5.5, 5.567}, {5.5, -5.567}, {8.5, -5.567}}, color = {1, 37, 163}));
   connect(sensor2Real1.OutputReal, feedback1.u2) annotation(Line(visible = true, origin = {-33.333, 83.08}, points = {{-6.667, -8.08}, {3.333, -8.08}, {3.333, 16.159}}, color = {1, 37, 163}));
   connect(control2Real2.OutputReal, Kid_d.u) annotation(Line(visible = true, origin = {-20.5, 30.567}, points = {{-19.5, -5.567}, {5.5, -5.567}, {5.5, 5.567}, {8.5, 5.567}}, color = {1, 37, 163}));
   connect(control2Real2.OutputReal, Kid_q.u) annotation(Line(visible = true, origin = {-20.5, 19.709}, points = {{-19.5, 5.291}, {5.5, 5.291}, {5.5, -5.291}, {8.5, -5.291}}, color = {1, 37, 163}));
@@ -93,5 +91,7 @@ equation
   connect(dq2abc1.v_B, switching2) annotation(Line(visible = true, origin = {421.772, -0}, points = {{-13.228, 0}, {13.228, -0}}, color = {0, 128, 0}));
   connect(dq2abc1.v_A, switching1) annotation(Line(visible = true, origin = {426.248, 31.996}, points = {{-17.504, -19.293}, {8.752, -19.293}, {8.752, 38.587}}, color = {0, 128, 0}));
   connect(dq2abc1.v_C, switching3) annotation(Line(visible = true, origin = {426.181, -35.806}, points = {{-17.637, 21.806}, {8.819, 21.806}, {8.819, -43.612}}, color = {0, 128, 0}));
+  connect(feedback1.y, Kv_d.u) annotation(Line(visible = true, origin = {-15.75, 96.135}, points = {{-5.25, 11.105}, {0.75, 11.105}, {0.75, -11.105}, {3.75, -11.105}}, color = {1, 37, 163}));
+  connect(feedback1.y, Kv_q.u) annotation(Line(visible = true, origin = {-15.75, 85.552}, points = {{-5.25, 21.687}, {0.75, 21.687}, {0.75, -21.687}, {3.75, -21.687}}, color = {1, 37, 163}));
   annotation(Icon(coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {10, 10}), graphics = {Text(visible = true, origin = {2.605, 4.014}, extent = {{-60.427, -34.014}, {60.427, 34.014}}, textString = "StateFeedback")}), Diagram(coordinateSystem(extent = {{-100, -120}, {440, 120}}, preserveAspectRatio = true, initialScale = 0.1, grid = {10, 10})));
 end StateFeedback;
