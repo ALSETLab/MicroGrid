@@ -15,7 +15,7 @@ model PV_Example
   BasicComponents.capacitor capacitor1(C = 0.00004, v.start = 0, v.fixed = true) annotation(Placement(visible = true, transformation(origin = {-0.789, 3.769}, extent = {{10.789, -10.789}, {-10.789, 10.789}}, rotation = 0)));
   Modelica.Blocks.Sources.Constant Temperature(k = 303) annotation(Placement(visible = true, transformation(origin = {-30, -112.41}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   BasicComponents.ground ground1 annotation(Placement(visible = true, transformation(origin = {-43.519, 83.762}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  Modelica.Blocks.Sources.Trapezoid trapezoid1(offset = 700, falling = 0.1, rising = 0.1, amplitude = 100, width = 0.3, startTime = 0.1) annotation(Placement(visible = true, transformation(origin = {38.371, -110}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
+  Modelica.Blocks.Sources.Trapezoid Irradiation(offset = 700, falling = 0.1, rising = 0.1, amplitude = 100, width = 0.3, startTime = 0.1) annotation(Placement(visible = true, transformation(origin = {38.371, -110}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
 equation
   connect(currentSensor1.p, voltageSensor1.p) annotation(Line(visible = true, origin = {14.66, -53.506}, points = {{0.209, 7.824}, {0.209, -3.912}, {-0.418, -3.912}}, color = {0, 0, 255}));
   connect(currentSensor1.currSignal, mppt1.i) annotation(Line(visible = true, origin = {41.376, -32.773}, points = {{-14.501, 0.061}, {3.626, 0.061}, {3.626, -0.061}, {7.249, -0.061}}, color = {255, 0, 0}));
@@ -34,6 +34,6 @@ equation
   connect(ground1.p, V_dc.n) annotation(Line(visible = true, origin = {-20.486, 84.305}, points = {{-13.033, -0.543}, {2.334, -0.543}, {2.334, 0.543}, {8.364, 0.543}}, color = {0, 0, 255}));
   connect(PV1.p, voltageSensor1.p) annotation(Line(visible = true, origin = {14.794, -73.942}, points = {{-2.482, -16.524}, {1.517, -16.524}, {1.517, 16.524}, {-0.552, 16.524}}, color = {0, 0, 255}));
   connect(voltageSensor1.n, PV1.n) annotation(Line(visible = true, origin = {-13.313, -73.942}, points = {{3.127, 16.524}, {-2.375, 16.524}, {-2.375, -16.524}, {1.625, -16.524}}, color = {0, 0, 255}));
-  connect(trapezoid1.y, PV1.Irr) annotation(Line(visible = true, origin = {14.332, -107.489}, points = {{13.04, -2.511}, {-6.52, -2.511}, {-6.52, 5.023}}, color = {1, 37, 163}));
+  connect(Irradiation.y, PV1.Irr) annotation(Line(visible = true, origin = {14.332, -107.489}, points = {{13.04, -2.511}, {-6.52, -2.511}, {-6.52, 5.023}}, color = {1, 37, 163}));
   annotation(experiment(StopTime = 0.4), Diagram(coordinateSystem(extent = {{-160, -134.3}, {160, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {10, 10})));
 end PV_Example;
