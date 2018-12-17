@@ -104,5 +104,5 @@ equation
   connect(Sensor_Cb.p, VSC.p2) annotation(Line(visible = true, origin = {87.389, 0.155}, points = {{-27.389, -0.155}, {7.69, -0.155}, {7.69, 0.155}, {12.009, 0.155}}, color = {0, 0, 255}));
   connect(switch3.n, Sensor_Cc.n) annotation(Line(visible = true, origin = {40.5, -15}, points = {{-18.501, 5}, {-0.5, 5}, {-0.5, -5}, {19.5, -5}}, color = {0, 0, 255}));
   connect(Sensor_Cc.p, VSC.p3) annotation(Line(visible = true, origin = {92.369, -18}, points = {{-12.369, -2}, {2.71, -2}, {2.71, 2}, {6.95, 2}}, color = {0, 0, 255}));
-  annotation(experiment(StopTime = 0.15, NumberOfIntervals = 100000, __Wolfram_Algorithm = "cvodes"), Diagram(coordinateSystem(extent = {{-200, -258.368}, {400, 120}}, preserveAspectRatio = true, initialScale = 0.1, grid = {10, 10})));
+  annotation(__Wolfram(PlotSet(plots = {Plot(name = "mppt1.pot", subPlots = {SubPlot(curves = {Curve(x = time, y = mppt1.pot)}), SubPlot(curves = {Curve(x = time, y = abc2dq1.v_d.sensorSignal), Curve(x = time, y = abc2dq1.v_q.sensorSignal)}, range = Range(xmin = 0, xmax = 0.16, ymin = auto, ymax = auto))})})), experiment(StopTime = 0.15, NumberOfIntervals = 100000, __Wolfram_Algorithm = "cvodes"), Diagram(coordinateSystem(extent = {{-200, -258.368}, {360, 120}}, preserveAspectRatio = true, initialScale = 0.1, grid = {10, 10})));
 end MicroGrid_Example;
