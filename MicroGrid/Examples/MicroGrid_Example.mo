@@ -22,7 +22,7 @@ model MicroGrid_Example
   Sensors.currentSensor Sensor_Ca annotation(Placement(visible = true, transformation(origin = {30, 20}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
   Sensors.currentSensor Sensor_Cb annotation(Placement(visible = true, transformation(origin = {50, 0}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
   Sensors.currentSensor Sensor_Cc annotation(Placement(visible = true, transformation(origin = {70, -20}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
-  Electrical.Converters.SwitchedVSC VSC(f_s = 15e3) annotation(Placement(visible = true, transformation(origin = {118.529, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+  Electrical.Converters.SwitchedVSC VSC(f_s = 20e3) annotation(Placement(visible = true, transformation(origin = {118.529, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   Electrical.BasicComponents.capacitor capacitor1(v.fixed = true, v.start = 400, C = 0.002) annotation(Placement(visible = true, transformation(origin = {176.95, 0}, extent = {{-16.95, -16.95}, {16.95, 16.95}}, rotation = -90)));
   Electrical.Sources.currentDC currentDC1 annotation(Placement(visible = true, transformation(origin = {275, -0}, extent = {{-15, -15}, {15, 15}}, rotation = -90)));
   Control.Interfaces.abc2dq abc2dq1 annotation(Placement(visible = true, transformation(origin = {50, -53.352}, extent = {{15, -15}, {-15, 15}}, rotation = 90)));
@@ -32,14 +32,14 @@ model MicroGrid_Example
   Electrical.Converters.SwitchedBoost Boost(Vdrop = 0, r_diode = 1E-5, g_diode = 1E-5, r_switch = 1E-5, g_switch = 1E-5, f_s = 100000, L_boost = 0.005) annotation(Placement(visible = true, transformation(origin = {210, -78.621}, extent = {{15, -15}, {-15, 15}}, rotation = 270)));
   Sensors.voltageSensor voltageSensor1 annotation(Placement(visible = true, transformation(origin = {212.028, -181.039}, extent = {{12.214, 12.214}, {-12.214, -12.214}}, rotation = 0)));
   Sensors.currentSensor currentSensor1 annotation(Placement(visible = true, transformation(origin = {224.869, -156.462}, extent = {{12.841, 12.841}, {-12.841, -12.841}}, rotation = -90)));
-  Control.RefGenerators.mppt mppt1(vref.start = 75, Ts = 0.001, deltaVpvRefPanel = 0.05, vref.fixed = true) annotation(Placement(visible = true, transformation(origin = {270.847, -162.424}, extent = {{12.829, -12.829}, {-12.829, 12.829}}, rotation = 180)));
+  Control.RefGenerators.mppt mppt1(vref.start = 75, Ts = 0.0001, deltaVpvRefPanel = 0.05, vref.fixed = true) annotation(Placement(visible = true, transformation(origin = {270.847, -162.424}, extent = {{12.829, -12.829}, {-12.829, 12.829}}, rotation = 180)));
   Control.Feedback.BoostControl boostControl1(TimeCons = 0.005, Gain = 0.005) annotation(Placement(visible = true, transformation(origin = {295, -105.813}, extent = {{15, 15}, {-15, -15}}, rotation = 270)));
   Electrical.BasicComponents.resistor resistor4(R = 0.02) annotation(Placement(visible = true, transformation(origin = {232.93, -106.429}, extent = {{-10, -10}, {10, 10}}, rotation = -270)));
   Electrical.BasicComponents.capacitor capacitor2(C = 0.00004, v.start = 0, v.fixed = true) annotation(Placement(visible = true, transformation(origin = {209.211, -119.852}, extent = {{10.789, -10.789}, {-10.789, 10.789}}, rotation = 0)));
   Modelica.Blocks.Sources.Constant Temperature(k = 303) annotation(Placement(visible = true, transformation(origin = {180, -236.031}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Blocks.Sources.Trapezoid irradiation(offset = 0.0, falling = 0.4, rising = 0.3, amplitude = 600, width = 0.3, startTime = 0.1) annotation(Placement(visible = true, transformation(origin = {248.371, -233.621}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
-  Control.Feedback.StateFeedback stateFeedback1(Kd_id = 0.056510048746566, Kq_id = -0.003328813422081, Kd_iq = 0.003210642297914, Kq_iq = 0.052670101087568, Kd_vdc = -0.065900480470580, Kq_vdc = -0.000434416583871, Kd_int_iq = 0.072512727930815, Kq_int_iq = -6.888480672396057, Kd_int_vdc = 7.136025996122589, Kq_int_vdc = 0.045297470213167) annotation(Placement(visible = true, transformation(origin = {118.343, -80}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  Modelica.Blocks.Sources.Ramp Load(height = 15, duration = 0.3, offset = 0.0, startTime = 0.15) annotation(Placement(visible = true, transformation(origin = {325, 0}, extent = {{15, -15}, {-15, 15}}, rotation = 0)));
+  Modelica.Blocks.Sources.Trapezoid irradiation(offset = 600.0, falling = 0.02, rising = 0.02, amplitude = 200, width = 0.04, startTime = 0.03) annotation(Placement(visible = true, transformation(origin = {248.371, -235.681}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
+  Control.Feedback.StateFeedback stateFeedback1(Kd_id = 0.07892, Kq_id = -0.003071, Kd_iq = 0.00202, Kq_iq = 0.056939, Kd_vdc = -0.113977, Kq_vdc = -0.001361, Kd_int_iq = 0.328665, Kq_int_iq = -10.7532, Kd_int_vdc = 16.8255, Kq_int_vdc = 0.152513, add2.k2 = -1, add1.k1 = -1) annotation(Placement(visible = true, transformation(origin = {118.343, -80}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+  Modelica.Blocks.Sources.Ramp Load(height = 10, duration = 0.01, offset = 0.0, startTime = 0.015) annotation(Placement(visible = true, transformation(origin = {325, 0}, extent = {{15, -15}, {-15, 15}}, rotation = 0)));
 equation
   connect(ground1.p, threePhaseAC1.gnd) annotation(Line(visible = true, origin = {-173.593, -0}, points = {{-4.224, -0}, {4.224, 0}}, color = {0, 0, 255}));
   connect(resistor1.n, inductor1.p) annotation(Line(visible = true, origin = {-68.781, 10}, points = {{-5.953, 0}, {5.953, 0}}, color = {0, 0, 255}));
@@ -87,7 +87,7 @@ equation
   connect(capacitor2.n, voltageSensor1.n) annotation(Line(visible = true, origin = {197.809, -150.446}, points = {{2.77, 30.594}, {-2.387, 30.593}, {-2.387, -30.593}, {2.005, -30.594}}, color = {0, 0, 255}));
   connect(PV1.p, voltageSensor1.p) annotation(Line(visible = true, origin = {224.794, -197.563}, points = {{-2.482, -16.524}, {1.517, -16.524}, {1.517, 16.524}, {-0.552, 16.524}}, color = {0, 0, 255}));
   connect(voltageSensor1.n, PV1.n) annotation(Line(visible = true, origin = {196.687, -197.563}, points = {{3.127, 16.524}, {-2.375, 16.524}, {-2.375, -16.524}, {1.625, -16.524}}, color = {0, 0, 255}));
-  connect(irradiation.y, PV1.Irr) annotation(Line(visible = true, origin = {224.332, -231.11}, points = {{13.039, -2.511}, {-6.52, -2.511}, {-6.52, 5.023}}, color = {1, 37, 163}));
+  connect(irradiation.y, PV1.Irr) annotation(Line(visible = true, origin = {224.332, -232.483}, points = {{13.039, -3.198}, {-6.52, -3.198}, {-6.52, 6.396}}, color = {1, 37, 163}));
   connect(capacitor1.n, Boost.Output_n) annotation(Line(visible = true, origin = {187.475, -29.445}, points = {{-10.525, 15.885}, {-10.525, 9.445}, {10.525, 9.445}, {10.525, -34.776}}, color = {0, 0, 255}));
   connect(capacitor1.p, Boost.Output_p) annotation(Line(visible = true, origin = {204.19, -14.976}, points = {{-27.24, 28.536}, {-27.24, 34.976}, {18.336, 34.976}, {18.336, -49.245}, {17.81, -49.245}}, color = {0, 0, 255}));
   connect(dSOGI_PLL1.Delta, stateFeedback1.Delta) annotation(Line(visible = true, origin = {56.568, -105.08}, points = {{-91.33, -10.045}, {23.432, -10.045}, {23.432, 10.045}, {42.81, 10.045}}, color = {0, 128, 0}));
@@ -104,5 +104,5 @@ equation
   connect(Sensor_Cb.p, VSC.p2) annotation(Line(visible = true, origin = {87.389, 0.155}, points = {{-27.389, -0.155}, {7.69, -0.155}, {7.69, 0.155}, {12.009, 0.155}}, color = {0, 0, 255}));
   connect(switch3.n, Sensor_Cc.n) annotation(Line(visible = true, origin = {40.5, -15}, points = {{-18.501, 5}, {-0.5, 5}, {-0.5, -5}, {19.5, -5}}, color = {0, 0, 255}));
   connect(Sensor_Cc.p, VSC.p3) annotation(Line(visible = true, origin = {92.369, -18}, points = {{-12.369, -2}, {2.71, -2}, {2.71, 2}, {6.95, 2}}, color = {0, 0, 255}));
-  annotation(experiment(StopTime = 0.7, Interval = 1e-4, __Wolfram_Algorithm = "dassl"), Diagram(coordinateSystem(extent = {{-200, -258.368}, {400, 120}}, preserveAspectRatio = true, initialScale = 0.1, grid = {10, 10})));
+  annotation(experiment(StopTime = 0.15, NumberOfIntervals = 100000, __Wolfram_Algorithm = "cvodes"), Diagram(coordinateSystem(extent = {{-200, -258.368}, {400, 120}}, preserveAspectRatio = true, initialScale = 0.1, grid = {10, 10})));
 end MicroGrid_Example;
