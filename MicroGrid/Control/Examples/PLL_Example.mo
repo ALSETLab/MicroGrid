@@ -12,12 +12,12 @@ model PLL_Example
   Sensors.voltageSensor voltageSensor2 annotation(Placement(visible = true, transformation(origin = {0, 10}, extent = {{10, -10}, {-10, 10}}, rotation = 90)));
   Sensors.voltageSensor voltageSensor3 annotation(Placement(visible = true, transformation(origin = {20, 30}, extent = {{10, -10}, {-10, 10}}, rotation = 90)));
   PhaseLockedLoop.DSOGI_PLL dSOGI_PLL1 annotation(Placement(visible = true, transformation(origin = {57.58, -35.577}, extent = {{17.58, -17.58}, {-17.58, 17.58}}, rotation = 90)));
-  Modelica.Blocks.Interaction.Show.RealValue V_D annotation(Placement(visible = true, transformation(origin = {10, -66.007}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
-  Modelica.Blocks.Interaction.Show.RealValue V_Q annotation(Placement(visible = true, transformation(origin = {10, -76.111}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
-  Interfaces.Control2Real control2Real1 annotation(Placement(visible = true, transformation(origin = {40, -65.922}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
-  Interfaces.Control2Real control2Real2 annotation(Placement(visible = true, transformation(origin = {40, -76.111}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
-  Interfaces.Control2Real control2Real3 annotation(Placement(visible = true, transformation(origin = {40, -86.833}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
-  Modelica.Blocks.Interaction.Show.RealValue V_Q1 annotation(Placement(visible = true, transformation(origin = {10, -86.833}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
+  Modelica.Blocks.Interaction.Show.RealValue V_D annotation(Placement(visible = true, transformation(origin = {-8.25, -66.475}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
+  Modelica.Blocks.Interaction.Show.RealValue V_Q annotation(Placement(visible = true, transformation(origin = {-8.25, -76.579}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
+  Interfaces.Control2Real control2Real1 annotation(Placement(visible = true, transformation(origin = {21.75, -66.39}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
+  Interfaces.Control2Real control2Real2 annotation(Placement(visible = true, transformation(origin = {21.75, -76.579}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
+  Interfaces.Control2Real control2Real3 annotation(Placement(visible = true, transformation(origin = {21.75, -87.301}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
+  Modelica.Blocks.Interaction.Show.RealValue V_Q1 annotation(Placement(visible = true, transformation(origin = {-8.25, -87.301}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
 equation
   connect(resistor1.n, ground2.p) annotation(Line(visible = true, origin = {-65, 75.978}, points = {{-5, -6.067}, {-5, 1.022}, {5, 1.022}, {5, 4.022}}, color = {0, 0, 255}));
   connect(resistor3.n, ground2.p) annotation(Line(visible = true, origin = {-55, 75.978}, points = {{5, -6.067}, {5, 1.022}, {-5, 1.022}, {-5, 4.022}}, color = {0, 0, 255}));
@@ -35,11 +35,11 @@ equation
   connect(voltageSensor3.voltSignal, dSOGI_PLL1.vC) annotation(Line(visible = true, origin = {56.374, 13.642}, points = {{-27.024, 16.358}, {13.512, 16.358}, {13.512, -32.717}}, color = {255, 0, 0}));
   connect(threePhaseAC1.p3, resistor1.p) annotation(Line(visible = true, origin = {-70.142, 32.157}, points = {{-0.142, -42.843}, {-0.142, 12.455}, {0.142, 12.455}, {0.142, 17.933}}, color = {0, 0, 255}));
   connect(voltageSensor3.p, threePhaseAC1.p3) annotation(Line(visible = true, origin = {-25.142, 28.829}, points = {{45.142, 11.171}, {45.142, 14.171}, {-45.142, 14.171}, {-45.142, -39.514}}, color = {0, 0, 255}));
-  connect(V_D.numberPort, control2Real1.OutputReal) annotation(Line(visible = true, origin = {26.375, -65.965}, points = {{-4.875, -0.043}, {0.625, -0.043}, {0.625, 0.043}, {3.625, 0.043}}, color = {1, 37, 163}));
-  connect(V_Q.numberPort, control2Real2.OutputReal) annotation(Line(visible = true, origin = {25.75, -76.111}, points = {{-4.25, 0}, {4.25, 0}}, color = {1, 37, 163}));
-  connect(control2Real1.InputSignal, dSOGI_PLL1.vD) annotation(Line(visible = true, origin = {51.237, -61.287}, points = {{-2.137, -4.735}, {1.069, -4.735}, {1.069, 9.47}}, color = {0, 128, 0}));
-  connect(control2Real2.InputSignal, dSOGI_PLL1.vQ) annotation(Line(visible = true, origin = {58.883, -68.052}, points = {{-9.783, -8.159}, {4.891, -8.159}, {4.891, 16.318}}, color = {0, 128, 0}));
-  connect(dSOGI_PLL1.Delta, control2Real3.InputSignal) annotation(Line(visible = true, origin = {73.486, -59.867}, points = {{0.963, 24.29}, {11.673, 24.29}, {11.673, -27.066}, {-24.386, -27.066}}, color = {0, 128, 0}));
-  connect(V_Q1.numberPort, control2Real3.OutputReal) annotation(Line(visible = true, origin = {25.75, -86.833}, points = {{-4.25, 0}, {4.25, 0}}, color = {1, 37, 163}));
+  connect(V_D.numberPort, control2Real1.OutputReal) annotation(Line(visible = true, origin = {8.125, -66.433}, points = {{-4.875, -0.042}, {0.625, -0.043}, {0.625, 0.043}, {3.625, 0.043}}, color = {1, 37, 163}));
+  connect(V_Q.numberPort, control2Real2.OutputReal) annotation(Line(visible = true, origin = {7.5, -76.579}, points = {{-4.25, 0}, {4.25, 0}}, color = {1, 37, 163}));
+  connect(control2Real1.InputSignal, dSOGI_PLL1.vD) annotation(Line(visible = true, origin = {51.237, -61.287}, points = {{-20.387, -5.203}, {-4.792, -5.203}, {-4.792, 9.286}}, color = {0, 128, 0}));
+  connect(control2Real2.InputSignal, dSOGI_PLL1.vQ) annotation(Line(visible = true, origin = {58.883, -68.052}, points = {{-28.033, -8.627}, {-0.42, -8.627}, {-0.42, 16.135}}, color = {0, 128, 0}));
+  connect(dSOGI_PLL1.Delta, control2Real3.InputSignal) annotation(Line(visible = true, origin = {73.486, -59.867}, points = {{-3.6, 7.806}, {-3.486, -7.985}, {-3.486, -27.534}, {-42.636, -27.534}}, color = {0, 128, 0}));
+  connect(V_Q1.numberPort, control2Real3.OutputReal) annotation(Line(visible = true, origin = {7.5, -87.301}, points = {{-4.25, 0}, {4.25, 0}}, color = {1, 37, 163}));
   annotation(experiment(StopTime = 1.0));
 end PLL_Example;
