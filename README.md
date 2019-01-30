@@ -7,5 +7,11 @@ Small library made as final project for the course Modeling and Simulation of Cy
 - The main package, MicroGrid, consists of six subpackages, named: (1) Examples, (2) Electrical, (3) Storage, (4) PhotoVoltaics, (5) Control and (6) Sensors. The microgrid example is within (1) Examples, named `MicroGrid_Example.mo`. Other examples are available in `Electrical/Examples` and in `Control/Examples`.
 - The model `Examples/MicroGrid_Example.mo` can be simulated in different manners, depending on the Modelica-compliant software being used. For OpenModelica and Dymola, the user should move to Simulation tab and by clicking the Simulate button. For SystemModeler, the Simulate button is located in the Modeling tab.
 
+## License - No Warranty
+
+This Modelica package is free software and the use is completely at your own risk; it can be redistributed and/or modified under the terms of the GNU Public License version 3.
+
+Copyright (C) 2018-2019, Marcelo de Castro Fernandes and Luigi Vanfretti.
+
 ## Acknowledgement
 This work was supported in part by the Engineering Research Center Program of the National Science Foundation and the Department of Energy under NSF Award Number EEC-1041877 and the CURENT Industry Partnership Program.
