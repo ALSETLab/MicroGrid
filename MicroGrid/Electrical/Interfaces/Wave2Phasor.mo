@@ -1,6 +1,6 @@
 within MicroGrid.Electrical.Interfaces;
 model Wave2Phasor "This model allows the wave-phasor interface between 
-  MicroGrid library and OpenIPSL using PLL input."
+  MicroGrid library and OpenIPSL using SOGI filter input."
   extends Modelica.Electrical.PowerConverters.Icons.Converter;
   // Pins for wave signal:
   PositivePin PinA annotation (Placement(transformation(extent={{80,70},{100,90}}),
@@ -53,30 +53,26 @@ model Wave2Phasor "This model allows the wave-phasor interface between
     annotation (Dialog(group="Power system data", enable=enablefn));
   // Importing pi constant:
   import Modelica.Constants.pi;
-protected
-  Modelica.SIunits.PerUnit MagV; // voltage magnitude in phasor domain
+//protected
+  Modelica.SIunits.Voltage MagV; // voltage magnitude in phasor domain
   Modelica.SIunits.Angle AngV; // voltage angle in phasor domain
-  Modelica.SIunits.Voltage Vm; // voltage wave peak magnitude
-  Modelica.SIunits.Current Ibase = S_b/V_b; // current base
 equation
   // ----- Current equations:
-  // Kirchhoff's First Law:
-  PinGrd.i=-PinA.i-PinB.i-PinC.i;
   // Calculating Clarke transformation and filtering fundamental component:
-  ialpha = (1/Ibase)*(0.5)*(2/3)*(PinA.i - (1/2)*PinB.i - (1/2)*PinC.i);
-  ibeta = (1/Ibase)*(0.5)*(2/3)*((sqrt(3)/2)*PinB.i - (sqrt(3)/2)*PinC.i);
+  ialpha = (0.5)*(2/3)*(PinA.i - (1/2)*PinB.i - (1/2)*PinC.i);
+  ibeta = (0.5)*(2/3)*((sqrt(3)/2)*PinB.i - (sqrt(3)/2)*PinC.i);
   // Real and imaginary parts of the current for phasor using Park transf.:
-  PSPin.ir= iapos*Modelica.Math.cos(2*pi*fn*time)+ibpos*Modelica.Math.sin(2*pi*fn*time);
-  PSPin.ii=-iapos*Modelica.Math.sin(2*pi*fn*time)+ibpos*Modelica.Math.cos(2*pi*fn*time);
+  PSPin.ii= -(1/sqrt(2))*(V_b/S_b)*(iapos*Modelica.Math.cos(2*pi*fn*time)+ibpos*Modelica.Math.sin(2*pi*fn*time));
+  PSPin.ir= -(1/sqrt(2))*(V_b/S_b)*(-iapos*Modelica.Math.sin(2*pi*fn*time)+ibpos*Modelica.Math.cos(2*pi*fn*time));
   // ----- Voltage equations:
   // Magnitude and angle for voltage signal:
-  MagV = sqrt(PSPin.vr^2 + PSPin.vi^2);
+  MagV = V_b*sqrt(PSPin.vr^2 + PSPin.vi^2);
   AngV = Modelica.Math.atan2(PSPin.vi,PSPin.vr);
   // Voltage difference between two nodes:
   PinGrd.v = 0;
-  PinA.v-PinGrd.v = sqrt(2)*(V_b/sqrt(3))*Modelica.Math.cos(2*pi*fn*time+AngV);
-  PinB.v-PinGrd.v = sqrt(2)*(V_b/sqrt(3))*Modelica.Math.cos(2*pi*fn*time+AngV-2*pi/3);
-  PinC.v-PinGrd.v = sqrt(2)*(V_b/sqrt(3))*Modelica.Math.cos(2*pi*fn*time+AngV+2*pi/3);
+  PinA.v-PinGrd.v = MagV*sqrt(2/3)*Modelica.Math.sin(2*pi*fn*time+AngV);
+  PinB.v-PinGrd.v = MagV*sqrt(2/3)*Modelica.Math.sin(2*pi*fn*time+AngV-2*pi/3);
+  PinC.v-PinGrd.v = MagV*sqrt(2/3)*Modelica.Math.sin(2*pi*fn*time+AngV+2*pi/3);
   annotation (Icon(graphics={Text(
           extent={{-72,74},{0,40}},
           lineColor={0,0,0},
