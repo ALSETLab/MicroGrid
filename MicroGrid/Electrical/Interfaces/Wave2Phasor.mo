@@ -53,11 +53,12 @@ model Wave2Phasor "This model allows the wave-phasor interface between
     annotation (Dialog(group="Power system data", enable=enablefn));
   // Importing pi constant:
   import Modelica.Constants.pi;
-//protected
+protected
   Modelica.SIunits.Voltage MagV; // voltage magnitude in phasor domain
   Modelica.SIunits.Angle AngV; // voltage angle in phasor domain
 equation
   // ----- Current equations:
+  PinGrd.i = -PinA.i-PinB.i-PinC.i;
   // Calculating Clarke transformation and filtering fundamental component:
   ialpha = (0.5)*(2/3)*(PinA.i - (1/2)*PinB.i - (1/2)*PinC.i);
   ibeta = (0.5)*(2/3)*((sqrt(3)/2)*PinB.i - (sqrt(3)/2)*PinC.i);
@@ -69,7 +70,6 @@ equation
   MagV = V_b*sqrt(PSPin.vr^2 + PSPin.vi^2);
   AngV = Modelica.Math.atan2(PSPin.vi,PSPin.vr);
   // Voltage difference between two nodes:
-  PinGrd.v = 0;
   PinA.v-PinGrd.v = MagV*sqrt(2/3)*Modelica.Math.sin(2*pi*fn*time+AngV);
   PinB.v-PinGrd.v = MagV*sqrt(2/3)*Modelica.Math.sin(2*pi*fn*time+AngV-2*pi/3);
   PinC.v-PinGrd.v = MagV*sqrt(2/3)*Modelica.Math.sin(2*pi*fn*time+AngV+2*pi/3);
