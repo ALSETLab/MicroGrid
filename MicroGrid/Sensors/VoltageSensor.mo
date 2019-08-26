@@ -1,5 +1,5 @@
 within MicroGrid.Sensors;
-model voltageSensor "Sensor to measure the voltage difference between two pins"
+model VoltageSensor "Sensor to measure the voltage difference between two pins"
   extends Modelica.Icons.RotationalSensor;
   MicroGrid.Electrical.Interfaces.PositivePin p "positive pin" annotation (Placement(
         transformation(extent={{-110,-10},{-90,10}})));
@@ -37,4 +37,4 @@ equation
         Line(points={{-70,0},{-96,0}}),
         Line(points={{70,0},{96,0}}),
         Line(points={{0,-90},{0,-70}}, color={0,0,255})}));
-end voltageSensor;
+end VoltageSensor;

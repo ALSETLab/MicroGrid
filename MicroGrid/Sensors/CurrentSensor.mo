@@ -1,5 +1,5 @@
 within MicroGrid.Sensors;
-model currentSensor "Sensor to measure the current flowing between two pins"
+model CurrentSensor "Sensor to measure the current flowing between two pins"
   extends Modelica.Icons.RotationalSensor;
   MicroGrid.Electrical.Interfaces.PositivePin p "positive pin" annotation (Placement(
         transformation(extent={{-110,-10},{-90,10}})));
@@ -40,4 +40,4 @@ equation
         Line(points={{-70,0},{-96,0}}),
         Line(points={{70,0},{96,0}}),
         Line(points={{0,-90},{0,-70}}, color={0,0,255})}));
-end currentSensor;
+end CurrentSensor;
