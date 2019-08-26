@@ -1,5 +1,4 @@
 within MicroGrid.Control.Examples;
-
 model PWM_1Ph_Example
   extends Modelica.Icons.Example;
   Modulation.TriangPWM_1Ph triangPWM_1Ph1 annotation(Placement(visible = true, transformation(origin = {30, 13.056}, extent = {{-13.056, -13.056}, {13.056, 13.056}}, rotation = 0)));

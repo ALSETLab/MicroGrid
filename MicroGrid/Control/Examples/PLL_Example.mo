@@ -1,5 +1,4 @@
 within MicroGrid.Control.Examples;
-
 model PLL_Example
   extends Modelica.Icons.Example;
   Electrical.Sources.threePhaseAC threePhaseAC1 annotation(Placement(visible = true, transformation(origin = {-60, -27.139}, extent = {{-17.139, -17.139}, {17.139, 17.139}}, rotation = -90)));
@@ -8,9 +7,9 @@ model PLL_Example
   Electrical.BasicComponents.resistor resistor2 annotation(Placement(visible = true, transformation(origin = {-60, 60}, extent = {{-12.388, -12.388}, {12.388, 12.388}}, rotation = -270)));
   Electrical.BasicComponents.resistor resistor3 annotation(Placement(visible = true, transformation(origin = {-50, 60}, extent = {{-12.388, -12.388}, {12.388, 12.388}}, rotation = -270)));
   Electrical.BasicComponents.ground ground2 annotation(Placement(visible = true, transformation(origin = {-60, 92.583}, extent = {{-12.583, -12.583}, {12.583, 12.583}}, rotation = -540)));
-  Sensors.voltageSensor voltageSensor1 annotation(Placement(visible = true, transformation(origin = {-20, -10}, extent = {{10, -10}, {-10, 10}}, rotation = 90)));
-  Sensors.voltageSensor voltageSensor2 annotation(Placement(visible = true, transformation(origin = {0, 10}, extent = {{10, -10}, {-10, 10}}, rotation = 90)));
-  Sensors.voltageSensor voltageSensor3 annotation(Placement(visible = true, transformation(origin = {20, 30}, extent = {{10, -10}, {-10, 10}}, rotation = 90)));
+  Sensors.VoltageSensor voltageSensor1 annotation(Placement(visible = true, transformation(origin = {-20, -10}, extent = {{10, -10}, {-10, 10}}, rotation = 90)));
+  Sensors.VoltageSensor voltageSensor2 annotation(Placement(visible = true, transformation(origin = {0, 10}, extent = {{10, -10}, {-10, 10}}, rotation = 90)));
+  Sensors.VoltageSensor voltageSensor3 annotation(Placement(visible = true, transformation(origin = {20, 30}, extent = {{10, -10}, {-10, 10}}, rotation = 90)));
   PhaseLockedLoop.DSOGI_PLL dSOGI_PLL1 annotation(Placement(visible = true, transformation(origin = {57.58, -35.577}, extent = {{17.58, -17.58}, {-17.58, 17.58}}, rotation = 90)));
   Modelica.Blocks.Interaction.Show.RealValue V_D annotation(Placement(visible = true, transformation(origin = {-8.25, -66.475}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
   Modelica.Blocks.Interaction.Show.RealValue V_Q annotation(Placement(visible = true, transformation(origin = {-8.25, -76.579}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));

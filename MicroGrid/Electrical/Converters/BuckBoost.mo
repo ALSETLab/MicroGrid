@@ -1,6 +1,5 @@
 within MicroGrid.Electrical.Converters;
-
-model SwitchedBuckBoost "DC/DC Buck-Boost Converter"
+model BuckBoost "DC/DC Buck-Boost Converter"
   extends Modelica.Electrical.PowerConverters.Icons.Converter;
   parameter Modelica.SIunits.Inductance L_boost "Boost input indctance";
   parameter Modelica.SIunits.Voltage Vdrop "Diode forward voltage drop";
@@ -33,11 +32,14 @@ equation
   connect(switch.control, sawtoothPWM.fire) annotation(Line(points = {{7, -2}, {36, -2}, {36, -61}}, color = {255, 0, 255}));
   connect(Output_p, Output_p) annotation(Line(points = {{96, 80}, {96, 80}}, color = {0, 0, 255}));
   connect(Input_n, switch.n) annotation(Line(visible = true, origin = {-47.2, -46.91}, points = {{-48.8, -33.09}, {-22.8, -33.09}, {-22.8, 14.635}, {47.2, 14.635}, {47.2, 36.91}}, color = {0, 0, 255}));
-  connect(diode1.n, switch.p) annotation(Line(visible = true, origin = {-11.082, 7.417}, points = {{-11.082, -1.75}, {-11.082, 1.583}, {11.082, 1.583}, {11.082, -1.417}}, color = {0, 0, 255}));
-  connect(diode1.p, switch.n) annotation(Line(visible = true, origin = {-11.082, -11.75}, points = {{-11.082, 1.417}, {-11.082, -1.583}, {11.082, -1.583}, {11.082, 1.75}}, color = {0, 0, 255}));
+  connect(diode1.n, switch.p) annotation(Line(visible = true, origin = {-11.082, 7.417}, points={{-11.083,
+          -1.75},{-11.083,1.583},{11.082,1.583},{11.082,-1.417}},                                                                                                          color = {0, 0, 255}));
+  connect(diode1.p, switch.n) annotation(Line(visible = true, origin = {-11.082, -11.75}, points={{-11.083,
+          1.417},{-11.083,-1.583},{11.082,-1.583},{11.082,1.75}},                                                                                                           color = {0, 0, 255}));
   connect(switch1.p, diode.p) annotation(Line(visible = true, origin = {35.074, 50}, points = {{0.037, -10}, {0.037, 5}, {-0.074, 5}}, color = {0, 0, 255}));
   connect(switch1.n, diode.n) annotation(Line(visible = true, origin = {51.074, 50}, points = {{0.037, -10}, {0.037, 5}, {-0.074, 5}}, color = {0, 0, 255}));
   connect(not1.u, sawtoothPWM.fire) annotation(Line(visible = true, origin = {39.651, -13.693}, points = {{3.651, 18.753}, {3.651, 13.693}, {-3.651, 13.693}, {-3.651, -47.307}}, color = {190, 52, 178}));
-  connect(not1.y, switch1.control) annotation(Line(visible = true, origin = {43.207, 28.79}, points = {{0.095, -4.629}, {0.095, 0.21}, {-0.095, 0.21}, {-0.095, 4.21}}, color = {190, 52, 178}));
-  annotation(Icon(coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {10, 10}), graphics = {Text(visible = true, origin = {46.093, -32.57}, extent = {{-37.781, -32.57}, {37.781, 32.57}}, textString = "DC"), Text(visible = true, origin = {-32.219, 47.43}, extent = {{-37.781, -32.57}, {37.781, 32.57}}, textString = "DC")}));
-end SwitchedBuckBoost;
+  connect(not1.y, switch1.control) annotation(Line(visible = true, origin = {43.207, 28.79}, points={{0.095,
+          -4.6285},{0.095,0.21},{-0.096,0.21},{-0.096,4.21}},                                                                                                           color = {190, 52, 178}));
+  annotation(Icon(coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {10, 10}), graphics={  Text(visible = true, origin = {46.093, -32.57}, extent = {{-37.781, -32.57}, {37.781, 32.57}}, textString = "DC"), Text(visible = true, origin = {-32.219, 47.43}, extent = {{-37.781, -32.57}, {37.781, 32.57}}, textString = "DC")}));
+end BuckBoost;
