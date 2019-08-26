@@ -1,5 +1,5 @@
-within MicroGrid.Control.PhaseLockedLoop;
-model SOGI
+within MicroGrid.Control.PhaseLockedLoop.Filters;
+model SOGI "Second Order Generalized Integrator"
   import Modelica.Constants.pi;
   extends Modelica.Electrical.PowerConverters.Icons.Control;
   parameter Real FilterGain = 1.41 "Filter gain";
