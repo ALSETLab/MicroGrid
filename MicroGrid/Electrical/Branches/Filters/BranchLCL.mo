@@ -1,5 +1,5 @@
 within MicroGrid.Electrical.Branches.Filters;
-model BranchLCL
+model BranchLCL "Branch with two RL branches connected in series and a capacitor between them connected to ground."
   extends MicroGrid.Electrical.Interfaces.OnePort;
   parameter Modelica.SIunits.Resistance R1 = 0.1 "Left-side resistance";
   parameter Modelica.SIunits.Inductance L1 = 0.1 "Left-side inductance";

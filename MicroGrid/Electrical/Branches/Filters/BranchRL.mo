@@ -1,5 +1,5 @@
 within MicroGrid.Electrical.Branches.Filters;
-model BranchRL
+model BranchRL "Branch with resistor and reactor connected in series."
   extends MicroGrid.Electrical.Interfaces.OnePort;
   parameter Modelica.SIunits.Resistance R = 0.1 "Branch resistance";
   parameter Modelica.SIunits.Inductance L = 0.1 "Branch inductance";
