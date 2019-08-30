@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fmiModelDescription
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  fmiVersion="2.0"
+  modelName="MicroGrid.Control.PhaseLockedLoop.Filters.SOGI"
+  guid="{30ef1e82-b309-433f-b842-47b8f0c3365c}"
+  description="Second Order Generalized Integrator"
+  generationTool="Dymola Version 2019 FD01 (64-bit), 2018-10-10 (requires license to execute)"
+  generationDateAndTime="2019-08-27T19:26:30Z"
+  variableNamingConvention="structured"
+  numberOfEventIndicators="0">
+  <ModelExchange
+    modelIdentifier="MicroGrid_Control_PhaseLockedLoop_Filters_SOGI"
+    canGetAndSetFMUstate="true"
+    canSerializeFMUstate="true"
+    providesDirectionalDerivative="true"/>
+  <UnitDefinitions>
+    <Unit
+      name="1"/>
+  </UnitDefinitions>
+  <TypeDefinitions>
+    <SimpleType
+      name="Modelica.Blocks.Interfaces.RealInput">
+      <Real/>
+    </SimpleType>
+    <SimpleType
+      name="Modelica.Blocks.Interfaces.RealOutput">
+      <Real/>
+    </SimpleType>
+    <SimpleType
+      name="Modelica.Blocks.Types.Init">
+      <Enumeration>
+        <Item name="NoInit"
+          value="1"
+          description="No initialization (start values are used as guess values with fixed=false)"/>
+        <Item name="SteadyState"
+          value="2"
+          description="Steady state initialization (derivatives of states are zero)"/>
+        <Item name="InitialState"
+          value="3"
+          description="Initialization with initial states"/>
+        <Item name="InitialOutput"
+          value="4"
+          description="Initialization with initial outputs (and steady state of the states if possible)"/>
+      </Enumeration>
+    </SimpleType>
+  </TypeDefinitions>
+  <DefaultExperiment startTime="0.0"
+    stopTime="0.1"
+    tolerance="0.0001"/>
+  <ModelVariables>
+    <!-- Index for next variable = 1 -->
+    <ScalarVariable
+      name="FilterGain"
+      valueReference="16777216"
+      description="Filter gain"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="1"
+        start="1.41"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 2 -->
+    <ScalarVariable
+      name="FrequencyHz"
+      valueReference="16777217"
+      description="System nominal frequency"
+      causality="parameter"
+      variability="tunable">
+      <Real start="60"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 3 -->
+    <ScalarVariable
+      name="feedback.u1"
+      valueReference="436207616">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealInput"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 4 -->
+    <ScalarVariable
+      name="feedback.u2"
+      valueReference="33554432">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealInput"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 5 -->
+    <ScalarVariable
+      name="feedback.y"
+      valueReference="637534208">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealOutput"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 6 -->
+    <ScalarVariable
+      name="gain1.k"
+      valueReference="100663297"
+      description="Gain value multiplied with input signal"
+      variability="tunable">
+      <Real
+        unit="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 7 -->
+    <ScalarVariable
+      name="gain1.u"
+      valueReference="637534208"
+      description="Input signal connector">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealInput"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 8 -->
+    <ScalarVariable
+      name="gain1.y"
+      valueReference="637534210"
+      description="Output signal connector">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealOutput"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 9 -->
+    <ScalarVariable
+      name="feedback2.u1"
+      valueReference="637534210">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealInput"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 10 -->
+    <ScalarVariable
+      name="feedback2.u2"
+      valueReference="335544321">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealInput"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 11 -->
+    <ScalarVariable
+      name="feedback2.y"
+      valueReference="637534211">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealOutput"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 12 -->
+    <ScalarVariable
+      name="gain2.k"
+      valueReference="100663300"
+      description="Gain value multiplied with input signal"
+      variability="tunable">
+      <Real
+        unit="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 13 -->
+    <ScalarVariable
+      name="gain2.u"
+      valueReference="637534211"
+      description="Input signal connector">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealInput"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 14 -->
+    <ScalarVariable
+      name="gain2.y"
+      valueReference="637534213"
+      description="Output signal connector">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealOutput"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 15 -->
+    <ScalarVariable
+      name="integrator1.k"
+      valueReference="16777218"
+      description="Integrator gain"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="1"
+        start="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 16 -->
+    <ScalarVariable
+      name="integrator1.initType"
+      valueReference="100663302"
+      description="Type of initialization (1: no init, 2: steady state, 3,4: initial output)"
+      variability="constant">
+      <Enumeration
+        declaredType="Modelica.Blocks.Types.Init"
+        start="4"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 17 -->
+    <ScalarVariable
+      name="integrator1.y_start"
+      valueReference="16777219"
+      description="Initial or guess value of output (= state)"
+      causality="parameter"
+      variability="fixed">
+      <Real start="0"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 18 -->
+    <ScalarVariable
+      name="integrator1.u"
+      valueReference="637534213"
+      description="Connector of Real input signal">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealInput"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 19 -->
+    <ScalarVariable
+      name="integrator1.y"
+      valueReference="33554432"
+      description="Connector of Real output signal">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealOutput"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 20 -->
+    <ScalarVariable
+      name="der(integrator1.y)"
+      valueReference="587202560"
+      description="der(Connector of Real output signal)">
+      <Real derivative="19"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 21 -->
+    <ScalarVariable
+      name="integrator2.k"
+      valueReference="16777220"
+      description="Integrator gain"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="1"
+        start="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 22 -->
+    <ScalarVariable
+      name="integrator2.initType"
+      valueReference="100663303"
+      description="Type of initialization (1: no init, 2: steady state, 3,4: initial output)"
+      variability="constant">
+      <Enumeration
+        declaredType="Modelica.Blocks.Types.Init"
+        start="4"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 23 -->
+    <ScalarVariable
+      name="integrator2.y_start"
+      valueReference="16777221"
+      description="Initial or guess value of output (= state)"
+      causality="parameter"
+      variability="fixed">
+      <Real start="0"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 24 -->
+    <ScalarVariable
+      name="integrator2.u"
+      valueReference="33554432"
+      description="Connector of Real input signal">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealInput"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 25 -->
+    <ScalarVariable
+      name="integrator2.y"
+      valueReference="33554433"
+      description="Connector of Real output signal">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealOutput"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 26 -->
+    <ScalarVariable
+      name="der(integrator2.y)"
+      valueReference="587202561"
+      description="der(Connector of Real output signal)">
+      <Real derivative="25"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 27 -->
+    <ScalarVariable
+      name="gain3.k"
+      valueReference="100663304"
+      description="Gain value multiplied with input signal"
+      variability="tunable">
+      <Real
+        unit="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 28 -->
+    <ScalarVariable
+      name="gain3.u"
+      valueReference="33554433"
+      description="Input signal connector">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealInput"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 29 -->
+    <ScalarVariable
+      name="gain3.y"
+      valueReference="335544321"
+      description="Output signal connector">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealOutput"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 30 -->
+    <ScalarVariable
+      name="v_in"
+      valueReference="352321536"
+      causality="input">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealInput"
+        start="0.0"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 31 -->
+    <ScalarVariable
+      name="v"
+      valueReference="335544320"
+      causality="output">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealOutput"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 32 -->
+    <ScalarVariable
+      name="qv"
+      valueReference="335544321"
+      causality="output">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealOutput"/>
+    </ScalarVariable>
+  </ModelVariables>
+  <ModelStructure>
+    <Outputs>
+      <Unknown index="31"
+        dependencies="19"
+        dependenciesKind="fixed"/>
+      <Unknown index="32"
+        dependencies="25"
+        dependenciesKind="fixed"/>
+    </Outputs>
+    <Derivatives>
+      <Unknown index="20"
+        dependencies="19 25 30"
+        dependenciesKind="fixed fixed fixed"/>
+      <Unknown index="26"
+        dependencies="19"
+        dependenciesKind="fixed"/>
+    </Derivatives>
+    <InitialUnknowns>
+      <Unknown index="19"
+        dependencies="17"
+        dependenciesKind="dependent"/>
+      <Unknown index="20"
+        dependencies="1 2 15 17 23 30"
+        dependenciesKind="dependent dependent dependent dependent dependent dependent"/>
+      <Unknown index="25"
+        dependencies="23"
+        dependenciesKind="dependent"/>
+      <Unknown index="26"
+        dependencies="17 21"
+        dependenciesKind="dependent dependent"/>
+      <Unknown index="31"
+        dependencies="17"
+        dependenciesKind="dependent"/>
+      <Unknown index="32"
+        dependencies="2 23"
+        dependenciesKind="dependent dependent"/>
+    </InitialUnknowns>
+  </ModelStructure>
+</fmiModelDescription>
