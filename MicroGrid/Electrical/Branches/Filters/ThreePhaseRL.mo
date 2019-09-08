@@ -12,16 +12,15 @@ model ThreePhaseRL
   Interfaces.NegativePin n2 annotation (Placement(transformation(extent={{86,-10},{106,10}})));
   Interfaces.NegativePin n3 annotation (Placement(transformation(extent={{86,-70},{106,-50}})));
 equation
-  connect(p1,p1)  annotation(Line(points = {{-96, 60}, {-96, 60}}, color = {0, 0, 255}));
-  connect(RL_1.n, n1)
-    annotation (Line(points={{8,60},{96,60}}, color={0,0,255}));
-  connect(RL_1.p, p1)
-    annotation (Line(points={{-8,60},{-96,60}}, color={0,0,255}));
-  connect(RL2.p, p2)
-    annotation (Line(points={{-8,0},{-96,0}}, color={0,0,255}));
-  connect(RL3.p, p3)
-    annotation (Line(points={{-8,-60},{-96,-60}}, color={0,0,255}));
-  connect(n2, n2) annotation (Line(points={{96,0},{96,0}}, color={0,0,255}));
+
+  connect(p1, RL1.p)
+    annotation (Line(points={{-96,60},{-8,60}}, color={0,0,255}));
+  connect(p2, RL2.p)
+    annotation (Line(points={{-96,0},{-8,0}}, color={0,0,255}));
+  connect(p3, RL3.p)
+    annotation (Line(points={{-96,-60},{-8,-60}}, color={0,0,255}));
+  connect(n1, RL1.n)
+    annotation (Line(points={{96,60},{8,60}}, color={0,0,255}));
   connect(n2, RL2.n) annotation (Line(points={{96,0},{8,0}}, color={0,0,255}));
   connect(n3, RL3.n)
     annotation (Line(points={{96,-60},{8,-60}}, color={0,0,255}));

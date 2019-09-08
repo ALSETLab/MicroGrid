@@ -40,7 +40,7 @@ equation
   connect(mppt1.y, boostControl1.V_ref) annotation(Line(visible = true, origin = {85.493, -24.56}, points={{
           -12.5176,-14.243},{6.2594,-14.243},{6.2594,28.4885}},                                                                                                      color = {0, 128, 0}));
   connect(boostControl1.DutyRatio, Boost.DutyRatio) annotation(Line(visible = true, origin = {39.354, 59.013}, points={{45.996,
-          -26.9729},{45.996,0.531},{45.996,0.987},{45.996,10.563},{-65.507,
+          -26.9728},{45.996,0.531},{45.996,0.987},{45.996,10.563},{-65.507,
           10.563},{-65.507,-14.013},{-53.904,-14.013}},                                                                                                                                                                                                     color = {0, 128, 0}));
   connect(V_dc.p, Boost.Output_p) annotation(Line(visible = true, origin = {14.485, 71.154}, points={{-2.3634,
           13.694},{3.667,13.694},{3.667,-7.817},{-2.485,-7.817},{-2.485,-11.754}},                                                                                                               color = {0, 0, 255}));

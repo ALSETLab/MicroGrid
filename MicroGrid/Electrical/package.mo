@@ -1,6 +1,7 @@
 within MicroGrid;
 package Electrical
    extends Modelica.Icons.Package;
+
    annotation(Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
     Rectangle(
       origin={20.3125,82.8571},

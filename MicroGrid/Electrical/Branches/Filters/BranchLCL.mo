@@ -1,6 +1,9 @@
 within MicroGrid.Electrical.Branches.Filters;
 model BranchLCL "Branch with two RL branches connected in series and a capacitor between them connected to ground."
-  extends MicroGrid.Electrical.Interfaces.OnePort;
+  Interfaces.PositivePin p annotation(Placement(transformation(extent={{-90,-10},
+            {-70,10}})));
+  Interfaces.NegativePin n annotation (Placement(transformation(extent={{70,-10},
+            {90,10}})));
   parameter Modelica.SIunits.Resistance R1 = 0.1 "Left-side resistance";
   parameter Modelica.SIunits.Inductance L1 = 0.1 "Left-side inductance";
   parameter Modelica.SIunits.Resistance R2 = 0.1 "Right-side resistance";
@@ -8,13 +11,16 @@ model BranchLCL "Branch with two RL branches connected in series and a capacitor
   parameter Modelica.SIunits.Capacitance C = 0.001 "Branch capacitance";
   BasicComponents.resistor resistor1(R=R1) annotation (Placement(transformation(extent={{-66,-10},
             {-46,10}})));
-  BasicComponents.inductor inductor1(L=L1) annotation (Placement(transformation(extent={{-38,-10},
+  BasicComponents.inductor inductor1(i(fixed=true),
+                                     L=L1) annotation (Placement(transformation(extent={{-38,-10},
             {-18,10}})));
   BasicComponents.resistor resistor2(R=R2)  annotation (Placement(transformation(extent={{18,-10},
             {38,10}})));
-  BasicComponents.inductor inductor2(L=L2)  annotation (Placement(transformation(extent={{46,-10},
+  BasicComponents.inductor inductor2(i(fixed=true),
+                                     L=L2)  annotation (Placement(transformation(extent={{46,-10},
             {66,10}})));
-  BasicComponents.capacitor capacitor(C=C) annotation (Placement(transformation(
+  BasicComponents.capacitor capacitor(v(fixed=true),
+                                      C=C) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=-90,
         origin={0,-18})));
@@ -29,7 +35,7 @@ equation
       color={0,0,255},
       smooth=Smooth.Bezier));
   connect(resistor1.p, p) annotation (Line(
-      points={{-64,0},{-80,0},{-80,0}},
+      points={{-64,0},{-80,0}},
       color={0,0,255},
       smooth=Smooth.Bezier));
   connect(resistor1.n, inductor1.p) annotation (Line(
@@ -41,7 +47,7 @@ equation
       color={0,0,255},
       smooth=Smooth.Bezier));
   connect(inductor2.n, n) annotation (Line(
-      points={{64,0},{72,0},{80,0}},
+      points={{64,0},{80,0}},
       color={0,0,255},
       smooth=Smooth.Bezier));
   connect(capacitor.p, resistor2.p) annotation (Line(

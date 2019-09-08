@@ -1,5 +1,4 @@
 within MicroGrid.Control.Interfaces;
-
 model clarke "Clarke transformation block."
   extends Modelica.Electrical.PowerConverters.Icons.Converter;
   import Modelica.Constants.pi;

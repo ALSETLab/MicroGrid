@@ -1,5 +1,4 @@
 within MicroGrid.PhotoVoltaics.Records;
-
 record ModuleData "Data of PV module"
   extends Modelica.Icons.Record;
   parameter String moduleName = "Generic";
@@ -20,7 +19,7 @@ record ModuleData "Data of PV module"
   parameter Modelica.SIunits.Current Ibv = 1 "Breakthrough knee current" annotation(Dialog(group = "Breakthrough data"));
   parameter Real Nbv = 0.74 "Breakthrough emission coefficient" annotation(Dialog(group = "Breakthrough data"));
   final parameter Modelica.SIunits.Voltage VtCellRef = Modelica.Constants.k * TRef / Q "Reference temperature voltage of cell";
-  annotation(defaultComponentName = "moduleData", defaultComponentPrefixes = "parameter", Icon(coordinateSystem(preserveAspectRatio = false), graphics = {Text(lineColor = {0, 0, 255}, extent = {{-200, -150}, {200, -110}}, textString = "%moduleName")}), Diagram(coordinateSystem(preserveAspectRatio = false)), Documentation(info = "<html>
+  annotation(defaultComponentName = "moduleData", defaultComponentPrefixes = "parameter", Icon(coordinateSystem(preserveAspectRatio = false), graphics={  Text(lineColor = {0, 0, 255}, extent = {{-200, -150}, {200, -110}}, textString = "%moduleName")}), Diagram(coordinateSystem(preserveAspectRatio = false)), Documentation(info = "<html>
 <p>This record defines parameters provided by photovoltaic module manufacturers.</p>
 </html>"));
 end ModuleData;

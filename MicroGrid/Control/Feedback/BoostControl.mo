@@ -1,5 +1,4 @@
 within MicroGrid.Control.Feedback;
-
 model BoostControl
   extends Modelica.Electrical.PowerConverters.Icons.Control;
   parameter Real Gain = 1;
@@ -22,5 +21,5 @@ equation
   connect(feedback1.y, PI.u) annotation(Line(visible = true, origin = {10.686, -0}, points = {{-4.384, -0}, {4.384, 0}}, color = {1, 37, 163}));
   connect(PI.y, gain1.u) annotation(Line(visible = true, origin = {60.198, -0}, points = {{-10.628, 0}, {10.628, -0}}, color = {1, 37, 163}));
   connect(gain1.y, real2Control1.InputReal) annotation(Line(visible = true, origin = {101.534, -0}, points = {{-7.708, 0}, {7.708, -0}}, color = {1, 37, 163}));
-  annotation(Diagram(coordinateSystem(extent = {{-100, -100}, {160, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {10, 10})), Icon(coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {10, 10}), graphics = {Text(visible = true, origin = {4.214, -1.926}, extent = {{-65.786, -38.074}, {65.786, 38.074}}, textString = "BoostControl")}));
+  annotation(Diagram(coordinateSystem(extent = {{-100, -100}, {160, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {10, 10})), Icon(coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {10, 10}), graphics={  Text(visible = true, origin = {4.214, -1.926}, extent = {{-65.786, -38.074}, {65.786, 38.074}}, textString = "BoostControl")}));
 end BoostControl;
