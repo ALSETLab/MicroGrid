@@ -143,9 +143,9 @@ equation
       thickness=0.5));
   connect(abc2dq1.Delta, dSOGI_PLL1.Delta) annotation (Line(
       points={{115.774,-23.352},{100,-23.352},{100,-63.6247},{74.8091,-63.6247}},
-
       color={0,128,0},
       thickness=0.5));
+
   connect(stateFeedback1.switching3, inverter.switching3) annotation (Line(
       points={{197.343,-31},{197.343,-20},{200.421,-20},{200.421,10.4018}},
       color={0,128,0},

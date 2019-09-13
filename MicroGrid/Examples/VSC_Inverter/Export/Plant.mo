@@ -28,18 +28,6 @@ model Plant
         extent={{-10,-10},{10,10}},
         rotation=-90,
         origin={280,-10})));
-  Modelica.Blocks.Sources.Ramp LoadSignal(
-    height=150,
-    duration=0.1,
-    offset=0.0,
-    startTime=0.2) annotation (Placement(visible=true, transformation(
-        origin={185,50},
-        extent={{-15,-15},{15,15}},
-        rotation=0)));
-  Modelica.Blocks.Sources.Step step(height=-75, startTime=0.1)
-    annotation (Placement(transformation(extent={{170,80},{200,110}})));
-  Modelica.Blocks.Math.Add add
-    annotation (Placement(transformation(extent={{230,60},{260,90}})));
   Sensors.threePhaseVoltageSensor VoltageSensor annotation (Placement(
         transformation(
         extent={{-20,20},{20,-20}},
@@ -112,6 +100,11 @@ model Plant
     annotation (Placement(transformation(extent={{-70,-150},{-50,-130}})));
   Control.Interfaces.Real2Control real2Control2
     annotation (Placement(transformation(extent={{-70,-160},{-50,-140}})));
+  Modelica.Blocks.Interfaces.RealInput loadCurve annotation (Placement(
+        transformation(
+        extent={{-20,-20},{20,20}},
+        rotation=-90,
+        origin={90,120})));
 equation
 
   connect(threePhaseAC.p1, Grid.p1)
@@ -157,10 +150,6 @@ equation
     annotation (Line(points={{280,-20},{280,-26},{240,-26}}, color={0,0,255}));
   connect(LoadSource.n, DC_Voltage.n)
     annotation (Line(points={{325,-25},{280,-25},{280,-20}}, color={0,0,255}));
-  connect(LoadSignal.y,add. u2) annotation (Line(points={{201.5,50},{210,50},{210,
-          66},{227,66}},        color={0,0,127}));
-  connect(add.u1,step. y) annotation (Line(points={{227,84},{210,84},{210,95},{201.5,
-          95}},         color={0,0,127}));
   connect(Grid.n1, VoltageSensor.p1)
     annotation (Line(points={{-50.8,2},{-32,2},{-32,-40.8}}, color={0,0,255}));
   connect(Grid.n2, VoltageSensor.p2) annotation (Line(points={{-50.8,-10},{-20,-10},
@@ -195,8 +184,6 @@ equation
       points={{320.9,-120.1},{320.9,-120},{118,-120},{118,-29.6}},
       color={255,0,0},
       thickness=0.5));
-  connect(add.y, LoadSource.i) annotation (Line(points={{261.5,75},{300,75},{300,
-          -10},{314.5,-10}}, color={0,0,127}));
   connect(VoltageSensor.vmeasured1, sensor2Real6.InputSignal) annotation (Line(
       points={{-0.4,-48},{69.9,-48},{69.9,-80.9}},
       color={255,0,0},
@@ -233,5 +220,7 @@ equation
           100,-230},{50,-230},{50,-100}}, color={0,0,127}));
   connect(vmeas3, sensor2Real4.OutputReal) annotation (Line(points={{0,-270},{0,
           -230},{30,-230},{30,-100}}, color={0,0,127}));
+  connect(LoadSource.i, loadCurve) annotation (Line(points={{314.5,-10},{300,
+          -10},{300,80},{90,80},{90,120}}, color={0,0,127}));
 annotation(Diagram(coordinateSystem(extent = {{-200, -258.368}, {360, 120}}, preserveAspectRatio = true, initialScale = 0.1, grid = {10, 10})),Icon(coordinateSystem(extent = {{-200, -258.368}, {360, 120}}, preserveAspectRatio = true, initialScale = 0.1, grid = {10, 10})));
 end Plant;
