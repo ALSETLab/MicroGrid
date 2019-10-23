@@ -11,5 +11,5 @@ equation
   v_A.sensorSignal = v_alfa.sensorSignal;
   v_B.sensorSignal = (-1 / 2) * v_alfa.sensorSignal + sqrt(3) / 2 * v_beta.sensorSignal;
   v_C.sensorSignal = (-1 / 2) * v_alfa.sensorSignal - sqrt(3) / 2 * v_beta.sensorSignal;
-  annotation(Icon(coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {10, 10}), graphics = {Text(visible = true, origin = {-25.601, 30}, extent = {{-41.162, -43.218}, {41.162, 43.218}}, textString = "alfa-beta"), Text(visible = true, origin = {39.208, -39.333}, extent = {{-29.208, -30.667}, {29.208, 30.667}}, textString = "abc")}));
+  annotation(Icon(coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {10, 10}), graphics={  Text(visible = true, origin = {-25.601, 30}, extent = {{-41.162, -43.218}, {41.162, 43.218}}, textString = "alfa-beta"), Text(visible = true, origin = {39.208, -39.333}, extent = {{-29.208, -30.667}, {29.208, 30.667}}, textString = "abc")}));
 end invClarke;

@@ -10,5 +10,5 @@ model clarke "Clarke transformation block."
 equation
   v_alfa.sensorSignal = 2 / 3 * (v_A.sensorSignal - 1 / 2 * v_B.sensorSignal - 1 / 2 * v_C.sensorSignal);
   v_beta.sensorSignal = 2 / 3 * (sqrt(3) / 2 * v_B.sensorSignal - sqrt(3) / 2 * v_C.sensorSignal);
-  annotation(Icon(coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {10, 10}), graphics = {Text(visible = true, origin = {31.162, -33.218}, extent = {{-41.162, -43.218}, {41.162, 43.218}}, textString = "alfa-beta"), Text(visible = true, origin = {-30.792, 40}, extent = {{-29.208, -30.667}, {29.208, 30.667}}, textString = "abc")}));
+  annotation(Icon(coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {10, 10}), graphics={  Text(visible = true, origin = {31.162, -33.218}, extent = {{-41.162, -43.218}, {41.162, 43.218}}, textString = "alfa-beta"), Text(visible = true, origin = {-30.792, 40}, extent = {{-29.208, -30.667}, {29.208, 30.667}}, textString = "abc")}));
 end clarke;

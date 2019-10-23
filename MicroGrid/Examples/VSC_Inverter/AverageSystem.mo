@@ -21,7 +21,7 @@ model AverageSystem
     annotation (Placement(transformation(extent={{150,10},{110,50}})));
   Electrical.Branches.Breakers.threePhaseBreaker Breaker
     annotation (Placement(transformation(extent={{50,10},{90,50}})));
-  Electrical.Converters.VSC01 inverter
+  Electrical.Converters.VSC02 inverter
     annotation (Placement(transformation(extent={{170,10},{210,50}})));
   Control.PhaseLockedLoop.DSOGI_PLL dSOGI_PLL1 annotation(Placement(visible = true, transformation(origin={53.1255,
             -48.749},                                                                                                        extent={{
@@ -180,6 +180,8 @@ equation
           {261.5,-45}}, color={0,0,127}));
   connect(LoadSource.i, add.y) annotation (Line(points={{335.5,30},{350,30},{
           350,-65},{341.5,-65}}, color={0,0,127}));
+  connect(ground.p, inverter.n) annotation (Line(points={{-160,30},{-160,70},{
+          190,70},{190,50}}, color={0,0,255}));
 annotation(Diagram(coordinateSystem(extent = {{-200, -258.368}, {360, 120}}, preserveAspectRatio = true, initialScale = 0.1, grid = {10, 10})),
       experiment(
       StopTime=0.4,

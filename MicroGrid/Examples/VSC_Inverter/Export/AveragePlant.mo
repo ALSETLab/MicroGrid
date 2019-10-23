@@ -15,7 +15,7 @@ model AveragePlant
     annotation (Placement(transformation(extent={{150,-30},{110,10}})));
   Electrical.Branches.Breakers.threePhaseBreaker Breaker
     annotation (Placement(transformation(extent={{50,-30},{90,10}})));
-  Electrical.Converters.VSC01 inverter
+  Electrical.Converters.VSC02 inverter
     annotation (Placement(transformation(extent={{170,-30},{210,10}})));
   Electrical.BasicComponents.capacitor capacitor(v(fixed=true, start=400), C=0.002)
     annotation (Placement(transformation(
@@ -222,5 +222,7 @@ equation
           -230},{30,-230},{30,-100}}, color={0,0,127}));
   connect(LoadSource.i, loadCurve) annotation (Line(points={{314.5,-10},{300,
           -10},{300,80},{90,80},{90,120}}, color={0,0,127}));
+  connect(inverter.n, threePhaseAC.gnd) annotation (Line(points={{190,10},{190,
+          30},{-149.2,30},{-149.2,-10}}, color={0,0,255}));
 annotation(Diagram(coordinateSystem(extent = {{-200, -258.368}, {360, 120}}, preserveAspectRatio = true, initialScale = 0.1, grid = {10, 10})),Icon(coordinateSystem(extent = {{-200, -258.368}, {360, 120}}, preserveAspectRatio = true, initialScale = 0.1, grid = {10, 10})));
 end AveragePlant;
