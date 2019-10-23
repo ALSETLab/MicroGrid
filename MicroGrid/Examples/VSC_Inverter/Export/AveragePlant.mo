@@ -1,5 +1,5 @@
 within MicroGrid.Examples.VSC_Inverter.Export;
-model Plant
+model AveragePlant
 
   Electrical.Sources.threePhaseAC threePhaseAC
     annotation (Placement(transformation(extent={{-110,-30},{-150,10}})));
@@ -223,4 +223,4 @@ equation
   connect(LoadSource.i, loadCurve) annotation (Line(points={{314.5,-10},{300,
           -10},{300,80},{90,80},{90,120}}, color={0,0,127}));
 annotation(Diagram(coordinateSystem(extent = {{-200, -258.368}, {360, 120}}, preserveAspectRatio = true, initialScale = 0.1, grid = {10, 10})),Icon(coordinateSystem(extent = {{-200, -258.368}, {360, 120}}, preserveAspectRatio = true, initialScale = 0.1, grid = {10, 10})));
-end Plant;
+end AveragePlant;

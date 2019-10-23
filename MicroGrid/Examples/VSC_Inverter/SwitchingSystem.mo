@@ -1,5 +1,5 @@
 within MicroGrid.Examples.VSC_Inverter;
-model System
+model SwitchingSystem
  extends Modelica.Icons.Example;
 
   Electrical.Sources.threePhaseAC threePhaseAC
@@ -186,4 +186,4 @@ annotation(Diagram(coordinateSystem(extent = {{-200, -258.368}, {360, 120}}, pre
       __Dymola_NumberOfIntervals=10000,
       __Dymola_fixedstepsize=1e-06,
       __Dymola_Algorithm="Dassl"));
-end System;
+end SwitchingSystem;
