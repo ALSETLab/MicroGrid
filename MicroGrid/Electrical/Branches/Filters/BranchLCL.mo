@@ -30,10 +30,7 @@ equation
 
   connect(capacitor.n, ground.p) annotation (Line(points={{-1.4988e-15,-26},{0,-26},
           {0,-44}}, color={0,0,255}));
-  connect(inductor.n, resistor1.p) annotation (Line(
-      points={{-20,0},{0,0},{20,0}},
-      color={0,0,255},
-      smooth=Smooth.Bezier));
+
   connect(resistor1.p, p) annotation (Line(
       points={{-64,0},{-80,0}},
       color={0,0,255},
