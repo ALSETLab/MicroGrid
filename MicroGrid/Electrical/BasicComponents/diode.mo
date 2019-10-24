@@ -1,5 +1,5 @@
 within MicroGrid.Electrical.BasicComponents;
-model diode "basic diode"
+model diode "basic and simplified diode"
   extends MicroGrid.Electrical.Interfaces.OnePort;
   parameter Modelica.SIunits.Resistance r_on(final min=0) = 1.E-5 "Forward ON state resistance";
   parameter Modelica.SIunits.Conductance g_off(final min=0) = 0 "Backward OFF state conductance";

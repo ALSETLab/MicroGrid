@@ -143,7 +143,7 @@ equation
   connect(resistor4.p, currentSensor1.n) annotation(Line(visible = true, origin = {228.9, -134.823}, points={{4.03,
           20.394},{4.03,-5.798},{-4.031,-5.798},{-4.031,-8.798}},                                                                                                                 color = {0, 0, 255}));
   connect(voltageSensor1.voltSignal, boostControl1.V_measured) annotation(Line(visible = true, origin = {250.514, -136.713}, points={{-38.486,
-          -32.9059},{-38.486,7.944},{38.486,7.944},{38.486,17.018}},                                                                                                                                             color = {255, 0, 0}));
+          -32.9059},{-38.486,7.944},{38.486,7.944},{38.486,17.0179}},                                                                                                                                            color = {255, 0, 0}));
   connect(capacitor2.p, resistor4.p) annotation(Line(visible = true, origin = {227.901, -118.044}, points={{
           -10.0588,-1.808},{5.029,-1.808},{5.029,3.615}},                                                                                                         color = {0, 0, 255}));
   connect(Temperature.y, PV1.T) annotation(Line(visible = true, origin = {198.875, -232.716}, points = {{-7.875, -3.315}, {3.937, -3.315}, {3.937, 6.629}}, color = {1, 37, 163}));

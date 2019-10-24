@@ -1,5 +1,4 @@
 within MicroGrid.PhotoVoltaics.Records;
-
 record LG300N1C_G4 "LG monocrystalline SI cell 300W"
   extends ModuleData(final moduleName = "LG300N1C_G4", final TRef = 298.15, final irradianceRef = 1000, final VocRef = 39.8, final IscRef = 9.9, final VmpRef = 32.2, final ImpRef = 9.34, final alphaIsc = +0.0003, final alphaVoc = -0.0028, final ns = 72, final nb = 3);
   annotation(defaultComponentName = "moduleData", defaultComponentPrefixes = "parameter", Documentation(info = "<html>

@@ -1,4 +1,4 @@
-within MicroGrid.Control.PhaseLockedLoop.Filters;
+within MicroGrid.Control.PhaseLockedLoop.Utilities;
 model SOGI "Second Order Generalized Integrator"
   import Modelica.Constants.pi;
   extends Modelica.Electrical.PowerConverters.Icons.Control;

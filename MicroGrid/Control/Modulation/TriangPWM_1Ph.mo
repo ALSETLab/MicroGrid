@@ -1,5 +1,4 @@
 within MicroGrid.Control.Modulation;
-
 model TriangPWM_1Ph
   extends Modelica.Electrical.PowerConverters.Icons.Control;
   parameter Modelica.SIunits.Frequency f = 1000 "Switching frequency";
@@ -22,5 +21,5 @@ equation
   connect(fire, greaterEqual.y) annotation(Line(visible = true, origin = {11, 30.8}, points = {{-71, 79.2}, {-71, -0.8}, {49, -0.8}, {49, -38.8}, {44, -38.8}}, color = {190, 52, 178}));
   connect(zeroOrderHold.y, greaterEqual.u2) annotation(Line(points = {{13, 0}, {32, 0}}, color = {0, 0, 127}));
   connect(limiter.y, zeroOrderHold.u) annotation(Line(points = {{-17, 0}, {-10, 0}}, color = {0, 0, 127}));
-  annotation(Icon(coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {10, 10}), graphics = {Text(visible = true, origin = {12.391, 41.668}, extent = {{-67.609, -35}, {67.609, 35}}, textString = "Single-Phase"), Text(visible = true, origin = {10, 5}, extent = {{-64.708, -15}, {64.708, 15}}, textString = "sinusoidal"), Text(visible = true, origin = {5.352, -30}, extent = {{-44.648, -13.784}, {44.648, 13.784}}, textString = "PWM")}));
+  annotation(Icon(coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {10, 10}), graphics={  Text(visible = true, origin = {12.391, 41.668}, extent = {{-67.609, -35}, {67.609, 35}}, textString = "Single-Phase"), Text(visible = true, origin = {10, 5}, extent = {{-64.708, -15}, {64.708, 15}}, textString = "sinusoidal"), Text(visible = true, origin = {5.352, -30}, extent = {{-44.648, -13.784}, {44.648, 13.784}}, textString = "PWM")}));
 end TriangPWM_1Ph;

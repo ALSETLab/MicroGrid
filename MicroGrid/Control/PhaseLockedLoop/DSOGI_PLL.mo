@@ -15,8 +15,8 @@ model DSOGI_PLL "Synchronous reference frame PLL with SOGI filter in alfa and be
   Interfaces.Control2Real control2Real2 annotation(Placement(visible = true, transformation(origin = {-34.693, -5.522}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Math.Gain gain1(k = 0.5) annotation(Placement(visible = true, transformation(origin = {-20, 24.296}, extent = {{-10, -10}, {10, 10}}, rotation = -270)));
   Modelica.Blocks.Math.Gain gain2(k = 0.5) annotation(Placement(visible = true, transformation(origin = {-20, -24.02}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  Filters.SOGI sogi_2(FilterGain = sogiGain, FrequencyHz = SysFreq) annotation(Placement(visible = true, transformation(origin = {0, -46.107}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Filters.SOGI sogi_1(FilterGain = sogiGain, FrequencyHz = SysFreq) annotation(Placement(visible = true, transformation(origin = {0, 50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Utilities.SOGI sogi_2(FilterGain = sogiGain, FrequencyHz = SysFreq) annotation(Placement(visible = true, transformation(origin = {0, -46.107}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Utilities.SOGI sogi_1(FilterGain = sogiGain, FrequencyHz = SysFreq) annotation(Placement(visible = true, transformation(origin = {0, 50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Math.Add add1(k2 = -1) annotation(Placement(visible = true, transformation(origin = {50, 20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Math.Add add2 annotation(Placement(visible = true, transformation(origin = {50, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Interfaces.Real2Control real2Control1 annotation(Placement(visible = true, transformation(origin = {76.2, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -27,7 +27,7 @@ model DSOGI_PLL "Synchronous reference frame PLL with SOGI filter in alfa and be
   Modelica.Blocks.Continuous.PI PI(k = 4 * pi * Freq_PI * Xi_PI * sqrt(3) / (VLine * sqrt(2)), T = 2 * Xi_PI / (2 * pi * Freq_PI), initType = Modelica.Blocks.Types.Init.InitialOutput) annotation(Placement(visible = true, transformation(origin = {174.763, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Math.Add add3 annotation(Placement(visible = true, transformation(origin = {205, -35.859}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.Constant const(k = 2 * pi * SysFreq) annotation(Placement(visible = true, transformation(origin = {150, -50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Blocks.Continuous.Integrator integrator1(initType = Modelica.Blocks.Types.Init.InitialOutput) annotation(Placement(visible = true, transformation(origin = {235, -35.859}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Utilities.IntegratorWithReset integrator1 annotation(Placement(visible = true, transformation(origin = {235, -35.859}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Interfaces.SignalBus vD annotation(Placement(visible = true, transformation(origin = {275, 65}, extent = {{-15, -15}, {15, 15}}, rotation = 0), iconTransformation(origin = {93.422, 63.339}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Interfaces.SignalBus vQ annotation(Placement(visible = true, transformation(origin = {275, 0}, extent = {{-15, -15}, {15, 15}}, rotation = 0), iconTransformation(origin = {92.946, -5.023}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Interfaces.SignalBus Delta annotation(Placement(visible = true, transformation(origin = {275, -65}, extent = {{-15, -15}, {15, 15}}, rotation = 0), iconTransformation(origin = {93.765, -70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
